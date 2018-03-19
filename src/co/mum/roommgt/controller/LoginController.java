@@ -88,21 +88,11 @@ public class LoginController extends HttpServlet {
 						rd.forward(request, response);
 					}
 				} catch (SQLException sqle) {
-					try {
-						DBUtil.closeResultSet(rs);
-						DBUtil.closeConnection(con);
-					} catch (SQLException sqle2) {
-						System.out.println("Error - Closing database connection");
-						LOGGER.fine("Error: Closing database connection!");
-					}
+					DBUtil.closeResultSet(rs);
+					DBUtil.closeConnection(con);
 				} finally {
-					try {
-						DBUtil.closeResultSet(rs);
-						DBUtil.closeConnection(con);
-					} catch (SQLException sqle2) {
-						System.out.println("Error - Closing database connection");
-						LOGGER.fine("Error: Closing database connection!");
-					}
+					DBUtil.closeResultSet(rs);
+					DBUtil.closeConnection(con);
 				}
 			} else {
 				request.setAttribute("errorMessage", "Error Connecting to the Database");
