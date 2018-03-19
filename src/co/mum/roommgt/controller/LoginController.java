@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.mum.roommgt.model.Account;
-import co.mum.roommgt.model.DatabaseConnectionFactory;
+import co.mum.roommgt.util.DBUtil;
+import co.mum.roommgt.util.DatabaseConnectionFactory;
+import java.util.ResourceBundle;
 
 /**
  * LoginController Description: Control the access to application Last Updated:
@@ -29,10 +31,13 @@ import co.mum.roommgt.model.DatabaseConnectionFactory;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(DatabaseConnectionFactory.class.getName());
+	private ResourceBundle rb;
 
 	public LoginController() {
 		super();
 		LOGGER.setLevel(Level.FINE);
+		rb = ResourceBundle.getBundle("sql");
+		System.out.println("rb = ");
 	}
 
 	/**
@@ -48,9 +53,11 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("LoginController---");
-		String home = getServletContext().getInitParameter("home");
+		String homeStudent = getServletContext().getInitParameter("homeStudent");
+		String homeDirector = getServletContext().getInitParameter("homeDirector");
 		String login = getServletContext().getInitParameter("login");
-		System.out.println("home: " + home);
+		System.out.println("homeStudent: " + homeStudent);
+		System.out.println("homeDirector: " + homeDirector);
 		System.out.println("login: " + login);
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -73,7 +80,7 @@ public class LoginController extends HttpServlet {
 						Account user = new Account(username, password);
 						HttpSession session = request.getSession();
 						session.setAttribute("user", user);
-						RequestDispatcher rd = request.getRequestDispatcher(home);
+						RequestDispatcher rd = request.getRequestDispatcher(homeStudent);
 						rd.forward(request, response);
 					} else {
 						request.setAttribute("errorMessage", "Invalid username or password");
@@ -82,16 +89,16 @@ public class LoginController extends HttpServlet {
 					}
 				} catch (SQLException sqle) {
 					try {
-						con.close();
+						DBUtil.closeResultSet(rs);
+						DBUtil.closeConnection(con);
 					} catch (SQLException sqle2) {
 						System.out.println("Error - Closing database connection");
 						LOGGER.fine("Error: Closing database connection!");
 					}
 				} finally {
 					try {
-						if (null != con) {
-							con.close();
-						}
+						DBUtil.closeResultSet(rs);
+						DBUtil.closeConnection(con);
 					} catch (SQLException sqle2) {
 						System.out.println("Error - Closing database connection");
 						LOGGER.fine("Error: Closing database connection!");
