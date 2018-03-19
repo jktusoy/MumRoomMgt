@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<span>logged in</span>
 </body>
 </html>
