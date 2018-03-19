@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
 		String login = getServletContext().getInitParameter("login");
 		System.out.println("homeStudent: " + homeStudent);
 		System.out.println("homeDirector: " + homeDirector);
-		System.out.println("login: " + login);
+		System.out.println("login: " + login);   
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		if (null != username && !username.equals("") && null != password && !password.equals("")) {
