@@ -1,12 +1,19 @@
-/**
- * 
- */
 package co.mum.roommgt.model;
+
+/**
+ * Account Description: Account VO
+ * 01/19/2018
+ * 
+ * @version 1.0 18 March 2018
+ * @author William Chaparro
+ */
 
 public class Account {
 
 	private String userName;
 	private String password;
+	private ROLE_TYPE roleType;
+	
 
 	public Account(String userName, String password) {
 		super();
@@ -30,4 +37,12 @@ public class Account {
 		this.password = password;
 	}
 
+	public ROLE_TYPE getRoleType() {
+		return roleType;
+	}
+
+	public void setRoleType(ROLE_TYPE roleType) {
+		this.roleType = roleType;
+	}
+	
 }
