@@ -1,7 +1,4 @@
 package co.mum.roommgt.controller;
-
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +23,7 @@ import co.mum.roommgt.model.StudentVM;
  * @author Joseph Kelly Tusoy
  */
 
-@WebServlet("/StudentController")
+ 
 public class StudentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,7 +43,7 @@ public class StudentController extends HttpServlet {
 		response.setContentType("text/json");
 		response.setCharacterEncoding("UTF-8");
 		
-		request.getParameter("accountId")
+		String accId = request.getParameter("accountId");
 		PrintWriter out = response.getWriter();
  
 		 
