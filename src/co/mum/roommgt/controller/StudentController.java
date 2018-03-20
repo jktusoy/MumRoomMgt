@@ -49,13 +49,12 @@ public class StudentController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/json");
 		response.setCharacterEncoding("UTF-8");
+		
+		request.getParameter("accountId")
 		PrintWriter out = response.getWriter();
  
 		 
 		List<Student> studentList = new ArrayList<Student>();
-		//accountList.add(new Account("joseph","tusoy"));
-		//accountList.add(new Account("noelene","dolon"));
-		//accountList.add(new Account("jacob","mew"));
 		StudentDAO sdao = new StudentDAO();
 		studentList = sdao.getStudents();
 
