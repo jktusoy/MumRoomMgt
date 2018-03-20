@@ -14,9 +14,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.mum.roommgt.dao.student.StudentDAO;
-import co.mum.roommgt.model.Account;
 import co.mum.roommgt.model.Student;
-import co.mum.roommgt.model.StudentVM;
+ 
  
 
 /**
@@ -46,19 +45,25 @@ public class StudentController extends HttpServlet {
 		response.setContentType("text/json");
 		response.setCharacterEncoding("UTF-8");
 		
-		String accId = request.getParameter("accountId");
-		
 		PrintWriter out = response.getWriter();
- 
-		 
-		List<Student> studentList = new ArrayList<Student>();
 		StudentDAO sdao = new StudentDAO();
-		studentList = sdao.getStudents();
-
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String jsonOutput = gson.toJson(studentList);
-	  
-		System.out.println(jsonOutput);;
+				
+		String accId = request.getParameter("id");
+		String jsonOutput ="";
+		if(accId != null && !accId.isEmpty() && !accId.trim().isEmpty())
+		{
+			Student student = new Student();
+			student = sdao.getStudentById(accId);
+			jsonOutput= gson.toJson(student);
+			
+		}else {
+
+			List<Student> studentList = new ArrayList<Student>();
+			studentList = sdao.getStudents();
+			jsonOutput= gson.toJson(studentList);
+		}
+			
 		out.println(jsonOutput);
 		out.flush();
 	}

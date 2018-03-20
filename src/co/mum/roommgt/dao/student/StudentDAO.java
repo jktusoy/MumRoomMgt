@@ -46,7 +46,7 @@ public class StudentDAO {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		List<Student> studList = new ArrayList<Student>();
-		
+
 		try {
 			con = DatabaseConnectionFactory.createConnection();
 			pst = con.prepareStatement(rb.getString("getStudents"));
@@ -63,18 +63,57 @@ public class StudentDAO {
 				sd.setNationality(rs.getString("Nationality"));
 				sd.setRoleTypeId(rs.getInt("Role_Typeid"));
 				sd.setAccountId(rs.getInt("AccountId"));
-		        studList.add(sd);
+				studList.add(sd);
 			}
-			 return studList;
+			return studList;
 
 		} catch (SQLException sqle) {
-			LOGGER.fine("Error: method getStudents method!");
+			LOGGER.fine("Error: method getStudents method!" + sqle.getMessage());
 		} finally {
 			DBUtil.closePreparedStatement(pst);
 			DBUtil.closeResultSet(rs);
 			DBUtil.closeConnection(con);
 		}
 		return null;
+
+	}
+
+	public Student getStudentById(String _acctId) {
+		System.out.println("getStudentsById() invoked!");
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Student sd = new Student();
+
+		try {
+			con = DatabaseConnectionFactory.createConnection();
+			pst = con.prepareStatement(rb.getString("getStudentById"));
+			pst.setString(1, _acctId);
+			rs = pst.executeQuery();
+
+			// https://stackoverflow.com/questions/21956042/mapping-a-jdbc-resultset-to-an-object
+			if(rs.next()){
+				sd.setId(rs.getInt("Id"));
+				sd.setName(rs.getString("Name"));
+				sd.setLastName(rs.getString("LastName"));
+				sd.setEmail(rs.getString("Email"));
+				sd.setPhone(rs.getString("Phone"));
+				sd.setSex(rs.getString("Sex"));
+				sd.setNationality(rs.getString("Nationality"));
+				sd.setRoleTypeId(rs.getInt("Role_Typeid"));
+				sd.setAccountId(rs.getInt("AccountId"));
+				}
+			
+
+		} catch (SQLException sqle) {
+			System.out.println(sqle.getMessage());
+			LOGGER.fine("Error: method getStudentsById method!" + sqle.getMessage());
+		} finally {
+			DBUtil.closePreparedStatement(pst);
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeConnection(con);
+		}
+		return sd;
 
 	}
 
