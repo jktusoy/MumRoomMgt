@@ -48,18 +48,22 @@ public class StudentController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		StudentDAO sdao = new StudentDAO();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-				
+		List<Student> studentList = new ArrayList<Student>();
+	 		
 		String accId = request.getParameter("id");
 		String jsonOutput ="";
 		if(accId != null && !accId.isEmpty() && !accId.trim().isEmpty())
 		{
+			
 			Student student = new Student();
 			student = sdao.getStudentById(accId);
-			jsonOutput= gson.toJson(student);
+			studentList.add(student);
+			studentList.add(student);
+			jsonOutput= gson.toJson(studentList);
 			
 		}else {
 
-			List<Student> studentList = new ArrayList<Student>();
+			
 			studentList = sdao.getStudents();
 			jsonOutput= gson.toJson(studentList);
 		}

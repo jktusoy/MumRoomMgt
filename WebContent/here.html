@@ -18,13 +18,13 @@
                $("#jqGrid").jqGrid({
                     type: "GET",
                     contentType: "application/json; charset=utf-8",
-                    url: "http://localhost:8080/RoomMgtApp/StudentController",
-                    data: {},
+                    url: "http://localhost:8080/RoomMgtApp/student?id=1",
                     colModel: [
                     { label: 'first name', name: 'name', key: true, width: 75 },
                     { label: 'last name', name: 'lastName', width: 150 },
                     { label: 'email', name: 'email', width: 150 }
                 ],
+                data: {"id":1},
 				viewrecords: true,
                     dataType: "json",
                     success: function (data, textStatus) {
