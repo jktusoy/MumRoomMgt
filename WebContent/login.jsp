@@ -20,7 +20,6 @@ March 18, 2018
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="login.js"></script> -->
 
-
 <title>Login form</title>
 </head>
 <body>
@@ -28,13 +27,7 @@ March 18, 2018
 	<!--
     This is the container that holds the overall login 
     -->
-	<div>
-		<c:if test="${not empty requestScope.errorMessage}">
-			<h3 class="form-signin-heading">
-				<c:out value="${requestScope.errorMessage}" />
-			</h3>
-		</c:if>
-	</div>
+	
 
 	<div class="container">
 		<div class="inside inside-container">
@@ -54,6 +47,13 @@ March 18, 2018
 					<label> <input type="checkbox" value="remember-me">
 						Remember me
 					</label>
+				</div>
+				<div class="alert alert-danger">
+						<c:if test="${not empty requestScope.errorMessage}">
+							<h3 class="form-signin-heading">
+								<c:out value="${requestScope.errorMessage}" />
+							</h3>
+						</c:if>
 				</div>
 				<button class="btn btn-lg btn-primary btn-block btn-signin"
 					type="submit">Sign in</button>
