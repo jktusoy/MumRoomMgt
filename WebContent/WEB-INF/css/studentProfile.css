@@ -16,6 +16,9 @@ body {
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
 }
+.date {
+    widows: 100px;
+}
 
 /* For Mobile Phone adjaustment */
 .header,
