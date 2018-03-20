@@ -12,12 +12,21 @@ public class Account {
 	private String userName;
 	private String password;
 	private ROLE_TYPE roleType;
+	private int buildingNumber;
 
 	public Account(String userName, String password, ROLE_TYPE roleType) {
 		super();
 		this.userName = userName;
 		this.password = password;
 		this.roleType = roleType;
+	}
+
+	public Account(String userName, String password, ROLE_TYPE roleType, int buildingNumber) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.roleType = roleType;
+		this.buildingNumber = buildingNumber;
 	}
 
 	public String getUserName() {
@@ -44,4 +53,11 @@ public class Account {
 		this.roleType = roleType;
 	}
 
+	public int getBuildingNumber() {
+		return buildingNumber;
+	}
+
+	public void setBuildingNumber(int buildingNumber) {
+		this.buildingNumber = buildingNumber;
+	}
 }
