@@ -1,4 +1,9 @@
 package co.mum.roommgt.controller;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,9 +14,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.mum.roommgt.dao.student.StudentDAO;
-import co.mum.roommgt.model.Account;
 import co.mum.roommgt.model.Student;
-import co.mum.roommgt.model.StudentVM;
+ 
  
 
 /**
@@ -33,8 +37,6 @@ public class StudentController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    
-    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,18 +45,29 @@ public class StudentController extends HttpServlet {
 		response.setContentType("text/json");
 		response.setCharacterEncoding("UTF-8");
 		
-		String accId = request.getParameter("accountId");
 		PrintWriter out = response.getWriter();
- 
-		 
-		List<Student> studentList = new ArrayList<Student>();
 		StudentDAO sdao = new StudentDAO();
-		studentList = sdao.getStudents();
-
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String jsonOutput = gson.toJson(studentList);
-	  
-		System.out.println(jsonOutput);;
+		List<Student> studentList = new ArrayList<Student>();
+	 		
+		String accId = request.getParameter("id");
+		String jsonOutput ="";
+		if(accId != null && !accId.isEmpty() && !accId.trim().isEmpty())
+		{
+			
+			Student student = new Student();
+			student = sdao.getStudentById(accId);
+			studentList.add(student);
+			studentList.add(student);
+			jsonOutput= gson.toJson(studentList);
+			
+		}else {
+
+			
+			studentList = sdao.getStudents();
+			jsonOutput= gson.toJson(studentList);
+		}
+			
 		out.println(jsonOutput);
 		out.flush();
 	}
