@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import co.mum.roommgt.dao.student.StudentDAO;
 import co.mum.roommgt.model.Account;
+import co.mum.roommgt.model.Student;
+import co.mum.roommgt.model.StudentVM;
  
 
 /**
@@ -45,14 +48,15 @@ public class StudentController extends HttpServlet {
 		PrintWriter out = response.getWriter();
  
 		 
-		List<Account> accountList = new ArrayList<Account>();
-		accountList.add(new Account("joseph","tusoy"));
-		accountList.add(new Account("noelene","dolon"));
-		accountList.add(new Account("jacob","mew"));
-	 
+		List<Student> studentList = new ArrayList<Student>();
+		//accountList.add(new Account("joseph","tusoy"));
+		//accountList.add(new Account("noelene","dolon"));
+		//accountList.add(new Account("jacob","mew"));
+		StudentDAO sdao = new StudentDAO();
+		studentList = sdao.getStudents();
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String jsonOutput = gson.toJson(accountList);
+		String jsonOutput = gson.toJson(studentList);
 	  
 		System.out.println(jsonOutput);;
 		out.println(jsonOutput);
