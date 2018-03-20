@@ -10,9 +10,10 @@ FF, IA
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <title>Student Profile Customization form</title>
+     <title>Arrival Form</title>
      <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-     <link rel="stylesheet" href="../../WebContent/WEB-INF/css/studentProfile.css">
+     <link rel="stylesheet" href="../etc/css/studentProfile.css">
+     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
  </head>
  <body>
         
@@ -216,7 +217,9 @@ FF, IA
                                       
                                    </div>
                              
-                                   <strong>Move In Date: </strong><input class="datepicker date" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy"> <br>   
+                                   <strong>Move In Date: </strong>
+                                   <input id="date" type="date">
+                                 <br>   
                             <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms and Conditions of the residence life.
                              <br>
                             <button type="button" class="btn btn-lg btn-info">Submit</button>					
@@ -225,5 +228,5 @@ FF, IA
                          </div>
              </div>
              </div>
- </body>
+             
  </html>
