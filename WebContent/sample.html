@@ -9,39 +9,25 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
-    <script src="/MumRoomMgt/WebContent/WEB-INF/js/jquery-3.3.1.min.js"></script>
-    <script src="/MumRoomMgt/WebContent/WEB-INF/js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-    <script src="/MumRoomMgt/WebContent/WEB-INF/js/jtable.2.4.0/jquery.jtable.min.js" type="text/js"></script>
-   
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+
 
     <script type="text/javascript">
 
         $(document).ready(function () {
-
-            $('#StudentTableContainer').jtable({
-                title: 'The Student List',
-                paging: true, //Enable paging
-                pageSize: 10, //Set page size (default: 10)
-                sorting: true, //Enable sorting
-                defaultSorting: 'Name ASC', //Set default sorting
-                actions: {
-                    listAction: 'RoomMgtApp/StudentController',
-                },
-                fields: {
-                    username: {
-                        key: true,
-                    },
-                    password: {
-                        title: 'Name',
-                        width: '23%'
-                    },
+            $('#example').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "scripts/jsonp.php",
+                    "dataType": "jsonp"
                 }
             });
-
-            //Load student list from server
-            $('#StudentTableContainer').jtable('load');
         });
-
     </script>
 
 
@@ -50,7 +36,28 @@
 </head>
 
 <body>
-    <div id="StudentTableContainer"></div>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
 </body>
 
 </html>

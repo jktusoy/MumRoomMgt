@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Your page title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/css/ui.jqgrid.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/jquery.jqgrid.min.js"></script>
+    <script>
+        //<![CDATA[
+        $(function () {
+            "use strict";
+
+               $("#jqGrid").jqGrid({
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    url: "http://localhost:8080/RoomMgtApp/StudentController",
+                    data: {},
+                    colModel: [
+                    { label: 'username', name: 'username', key: true, width: 75 },
+                    { label: 'password', name: 'password', width: 150 }
+                ],
+				viewrecords: true,
+                    dataType: "json",
+                    success: function (data, textStatus) {
+                       alert(data);
+                    },
+                    error: function (data, textStatus) {
+                        alert('An error has occured retrieving data!');
+                    }
+                });
+            
+        });
+
+ 
+        
+ 
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <table id="jqGrid"></table>
+</body>
+
+</html>
