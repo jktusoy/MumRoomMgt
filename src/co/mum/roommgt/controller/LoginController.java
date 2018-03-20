@@ -58,11 +58,10 @@ public class LoginController extends HttpServlet {
 		if (null != username && !username.equals("") && null != password && !password.equals("")) {
 			if (loginDAO.isValidUser(username, password)) {
 				System.out.println("VALID USER");
-				ROLE_TYPE rt = loginDAO.getUserType(username);
-				Account user = new Account(username, password, rt);
+				Account user = loginDAO.getAccount(username, password);
 				HttpSession session = request.getSession();
 				session.setAttribute("userBean", user);
-				if (rt.getRoleTypeCode() == ROLE_TYPE.STUDENT.getRoleTypeCode()) {
+				if (user.getRoleType().getRoleTypeCode() == ROLE_TYPE.STUDENT.getRoleTypeCode()) {
 					System.out.println("STUDENT");
 					RequestDispatcher rd = request.getRequestDispatcher(homeStudent);
 					rd.forward(request, response);

@@ -22,9 +22,16 @@
 		<div id="header">
 			<img src="" />
 		</div>
+		<c:if test='${not empty sessionScope.userBean}'>
+			<div id="header"> 
+				Logged as <a href="#" >${sessionScope.userBean.userName}</a>
+				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'>
+				<span>for Building Number ${sessionScope.userBean.buildingNumber}</span>
+				</c:if> 
+			</div>
+		</c:if>
 		<div id="subheader">subheader FOR DIRECTOR</div>
 		<div id="navigation" class="aside">
-
 
 			<!-- My-->
 			<div>
@@ -52,8 +59,12 @@
 								<li><i class="fas  fa-inbox fa-fw"></i> Room Detail Per
 									Student</li>
 								<li><i class="fas  fa-check fa-fw"></i>Rooms Transfers</li>
-							</ul></li>
-
+							</ul>
+						</li>
+                        <li class="active">
+                                <i class="fas fa-user fa-fw"></i>
+                                <a href="">LogOut</a>
+                        </li>
 					</ul>
 				</nav>
 			</div>
