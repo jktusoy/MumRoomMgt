@@ -8,14 +8,15 @@ package co.mum.roommgt.model;
  */
 public enum ROLE_TYPE {
 
-	RESIDENT_ADVISOR("1"), RESIDENT_DIRECTOR("2"), STUDENT("3");
+	RESIDENT_ADVISOR(1), RESIDENT_DIRECTOR(2), STUDENT(3);
 
-	private final String shortCode;
+	private final int roleTypeCode;
 
-	ROLE_TYPE(String code) {
-		this.shortCode = code;
+	ROLE_TYPE(int code) {
+		this.roleTypeCode = code;
 	}
-	public String getRoleTypeCode() {
-		return this.shortCode;
+
+	public int getRoleTypeCode() {
+		return this.roleTypeCode;
 	}
 }

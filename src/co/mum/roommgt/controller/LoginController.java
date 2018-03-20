@@ -1,10 +1,6 @@
 package co.mum.roommgt.controller;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import co.mum.roommgt.dao.login.LoginDAO;
 import co.mum.roommgt.model.Account;
-import co.mum.roommgt.util.DBUtil;
+import co.mum.roommgt.model.ROLE_TYPE;
 import co.mum.roommgt.util.DatabaseConnectionFactory;
-import java.util.ResourceBundle;
 
 /**
  * LoginController Description: Control the access to application Last Updated:
@@ -31,13 +27,12 @@ import java.util.ResourceBundle;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(DatabaseConnectionFactory.class.getName());
-	private ResourceBundle rb;
+	private LoginDAO loginDAO;
 
 	public LoginController() {
 		super();
 		LOGGER.setLevel(Level.FINE);
-		rb = ResourceBundle.getBundle("sql");
-		System.out.println("rb = ");
+		loginDAO = new LoginDAO();
 	}
 
 	/**
@@ -46,8 +41,8 @@ public class LoginController extends HttpServlet {
 	 * 
 	 * @param arg
 	 *            request object and response object.
-	 * @exception Any
-	 *                ServletException and IOException
+	 * @exception ServletException
+	 *                and IOException
 	 * @return No return value.
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -56,51 +51,34 @@ public class LoginController extends HttpServlet {
 		String homeStudent = getServletContext().getInitParameter("homeStudent");
 		String homeDirector = getServletContext().getInitParameter("homeDirector");
 		String login = getServletContext().getInitParameter("login");
-		System.out.println("homeStudent: " + homeStudent);
-		System.out.println("homeDirector: " + homeDirector);
-		System.out.println("login: " + login);   
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
+		String username = request.getParameter("inputEmail");
+		String password = request.getParameter("inputPassword");
+		System.out.println("username: " + username);
+		System.out.println("password: " + password);
 		if (null != username && !username.equals("") && null != password && !password.equals("")) {
-			Connection con = DatabaseConnectionFactory.createConnection();
-			ResultSet rs = null;
-			int i = 0;
-			if (null != con) {
-				System.out.println("Connection to the database OK");
-				try {
-					Statement st = con.createStatement();
-					String sql = "SELECT userName,Password FROM roommgt.account where userName='" + username
-							+ "' and Password='" + password + "' ";
-					rs = st.executeQuery(sql);
-					System.out.println(sql);
-					while (rs.next()) {
-						i = 1;
-					}
-					if (i != 0) {
-						Account user = new Account(username, password);
-						HttpSession session = request.getSession();
-						session.setAttribute("user", user);
-						RequestDispatcher rd = request.getRequestDispatcher(homeStudent);
-						rd.forward(request, response);
-					} else {
-						request.setAttribute("errorMessage", "Invalid username or password");
-						RequestDispatcher rd = request.getRequestDispatcher(login);
-						rd.forward(request, response);
-					}
-				} catch (SQLException sqle) {
-					DBUtil.closeResultSet(rs);
-					DBUtil.closeConnection(con);
-				} finally {
-					DBUtil.closeResultSet(rs);
-					DBUtil.closeConnection(con);
+			if (loginDAO.isValidUser(username)) {
+				System.out.println("VALID USER");
+				ROLE_TYPE rt = loginDAO.getUserType(username);
+				Account user = new Account(username, password, rt);
+				HttpSession session = request.getSession();
+				session.setAttribute("userBean", user);
+				if (rt.getRoleTypeCode() == ROLE_TYPE.STUDENT.getRoleTypeCode()) {
+					System.out.println("STUDENT");
+					RequestDispatcher rd = request.getRequestDispatcher(homeStudent);
+					rd.forward(request, response);
+				} else {
+					System.out.println("DIRECTOR");
+					RequestDispatcher rd = request.getRequestDispatcher(homeDirector);
+					rd.forward(request, response);
 				}
 			} else {
-				request.setAttribute("errorMessage", "Error Connecting to the Database");
+				System.out.println("Invalid username or password 1");
+				request.setAttribute("errorMessage", "Invalid username or password");
 				RequestDispatcher rd = request.getRequestDispatcher(login);
 				rd.forward(request, response);
-				LOGGER.fine("Error: Error Connecting to the Database!");
 			}
 		} else {
+			System.out.println("SOMETHING WORN");
 			request.setAttribute("errorMessage", "Invalid username or password");
 			RequestDispatcher rd = request.getRequestDispatcher(login);
 			rd.forward(request, response);
