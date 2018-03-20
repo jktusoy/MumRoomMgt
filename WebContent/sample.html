@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+    <script src="/WEB-INF/js/jquery-3.3.1.min.js"></script>
+    <script src="/WEB-INF/js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="WEB-INF/js/jtable.2.4.0/jquery.jtable.min.js" type="text/js"></script>
+   
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#StudentTableContainer').jtable({
+                title: 'The Student List',
+                paging: true, //Enable paging
+                pageSize: 10, //Set page size (default: 10)
+                sorting: true, //Enable sorting
+                defaultSorting: 'Name ASC', //Set default sorting
+                actions: {
+                    listAction: 'RoomMgtApp/StudentController',
+                },
+                fields: {
+                    username: {
+                        key: true,
+                    },
+                    password: {
+                        title: 'Name',
+                        width: '23%'
+                    },
+                }
+            });
+
+            //Load student list from server
+            $('#StudentTableContainer').jtable('load');
+        });
+
+    </script>
+
+
+
+
+</head>
+
+<body>
+    <div id="StudentTableContainer"></div>
+</body>
+
+</html>

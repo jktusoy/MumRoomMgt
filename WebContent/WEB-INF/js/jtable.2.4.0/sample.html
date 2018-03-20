@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="..\WEB-INF/css/admin.css" type="text/css" rel="stylesheet"></link>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
+    <script src="jquery.jtable.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#StudentTableContainer').jtable({
+                title: 'The Student List',
+                paging: true, //Enable paging
+                pageSize: 10, //Set page size (default: 10)
+                sorting: true, //Enable sorting
+                defaultSorting: 'Name ASC', //Set default sorting
+                actions: {
+                    listAction: 'http://localhost:8080/RoomMgtApp/StudentController',
+                },
+                fields: {
+                    username: {
+                        key: true,
+                    },
+                    password: {
+                        title: 'Name',
+                        width: '23%'
+                    },
+                }
+            });
+
+            //Load student list from server
+            $('#StudentTableContainer').jtable('load');
+        });
+
+    </script>
+
+
+
+
+</head>
+
+<body>
+    <div id="StudentTableContainer"></div>
+</body>
+
+</html>
