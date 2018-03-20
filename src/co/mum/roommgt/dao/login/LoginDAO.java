@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import co.mum.roommgt.model.Account;
 import co.mum.roommgt.model.ROLE_TYPE;
 import co.mum.roommgt.util.DBUtil;
 import co.mum.roommgt.util.DatabaseConnectionFactory;
@@ -77,36 +78,53 @@ public class LoginDAO {
 	 * 
 	 * @return userType
 	 */
-	public ROLE_TYPE getUserType(String username) {
+	public Account getAccount(String username, String password) {
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
+		Account account = null;
 		try {
 			con = DatabaseConnectionFactory.createConnection();
-			pst = con.prepareStatement(rb.getString("getUserType"));
+			pst = con.prepareStatement(rb.getString("getAccount"));
 			pst.setString(1, username);
 			rs = pst.executeQuery();
 			if (rs.next()) {
 				int roleType = rs.getInt(1);
+				String buildingNumber = rs.getString(2);
 				switch (roleType) {
 				case 1:
-					return ROLE_TYPE.RESIDENT_ADVISOR;
+					if (null != buildingNumber && !buildingNumber.equals("")) {
+						account = new Account(username, password, ROLE_TYPE.RESIDENT_ADVISOR,
+								Integer.parseInt(buildingNumber));
+					} else {
+						account = new Account(username, password, ROLE_TYPE.RESIDENT_ADVISOR);
+					}
+					break;
 				case 2:
-					return ROLE_TYPE.RESIDENT_DIRECTOR;
+					if (null != buildingNumber && !buildingNumber.equals("")) {
+						account = new Account(username, password, ROLE_TYPE.RESIDENT_DIRECTOR,
+								Integer.parseInt(buildingNumber));
+					} else {
+						account = new Account(username, password, ROLE_TYPE.RESIDENT_DIRECTOR);
+					}
+					break;
 				case 3:
-					return ROLE_TYPE.STUDENT;
-				default:
-					return ROLE_TYPE.STUDENT;
+					if (null != buildingNumber && !buildingNumber.equals("")) {
+						account = new Account(username, password, ROLE_TYPE.STUDENT, Integer.parseInt(buildingNumber));
+					} else {
+						account = new Account(username, password, ROLE_TYPE.STUDENT);
+					}
+					break;
 				}
 			}
 		} catch (SQLException sqle) {
-			LOGGER.fine("Error: method getUserType method!");
+			LOGGER.fine("Error: method getAccount method!");
 		} finally {
 			DBUtil.closePreparedStatement(pst);
 			DBUtil.closeResultSet(rs);
 			DBUtil.closeConnection(con);
 		}
-		return ROLE_TYPE.STUDENT;
+		return account;
 	}
 
 }

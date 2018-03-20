@@ -18,6 +18,14 @@
         <div id="header">
             <img src="" />
         </div>
+		<c:if test='${not empty sessionScope.userBean}'>
+			<div id="header"> 
+				Logged as <a href="#" >${sessionScope.userBean.userName}</a>
+				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'>
+				<span>for Building Number ${sessionScope.userBean.buildingNumber} </span>
+				</c:if> 
+			</div>
+		</c:if>
         <div id="subheader">subheader - FOR STUDENT </div>
         <div id="navigation" class="aside">
 
