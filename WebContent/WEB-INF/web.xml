@@ -8,9 +8,19 @@
   
  <!-- SYSTEM PARAMS --> 
   <context-param>
-    <param-name>home</param-name>
-    <param-value>/home.jsp</param-value>
+    <param-name>homeStudent</param-name>
+    <param-value>/homeStudent.jsp</param-value>
   </context-param>
+  <context-param>
+    <param-name>homeDirector</param-name>
+    <param-value>/homeDirector.jsp</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>homeDirector</param-name>
+    <param-value>/homeDirector.jsp</param-value>
+  </context-param>
+
   <context-param>
     <param-name>login</param-name>
     <param-value>/login.jsp</param-value>
