@@ -20,7 +20,6 @@ March 18, 2018
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="login.js"></script> -->
 
-
 <title>Login form</title>
 </head>
 <body>
