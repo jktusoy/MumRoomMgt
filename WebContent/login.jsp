@@ -1,39 +1,61 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!-- This is a login form that will be used 
+When the a student registered
+Author: Binyam H
+March 18, 2018 
+
+ -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="/css/main.css" />
-<title>Room Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href='<c:url value="/etc/css/login.css"/>'>
+    <title>Room Management System</title>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="login.js"></script> -->
+
+
+    <title>Login form</title>
 </head>
 <body>
-	<div id="wrapper">
-		<form name="login-form" class="login-form" action="login"
-			method="post">
-			<div class="header">
-				<h1>Login</h1>
-				<span></span>
-			</div>
-			<div class="content">
-				<input name="username" type="text" class="input username"
-					placeholder="Username" />
-				<div class="user-icon"></div>
-				<input name="password" type="password" class="input password"
-					placeholder="Password" />
-				<div class="pass-icon"></div>
-			</div>
-			<div class="footer">
-				<input type="submit" name="submit" value="Login" class="button" />
-			</div>
-		</form>
-	</div>
-
+    
+<!--
+    This is the container that holds the overall login 
+    -->
 	<div>
-		<c:if test="${requestScope.errorMessage != null}">
-			<span><c:out value="${requestScope.mensaje}"/></span>
+		<c:if test="${not empty requestScope.errorMessage}">
+			<div>
+				<span><c:out value="${requestScope.errorMessage}" /></span>
+			</div>
 		</c:if>
 	</div>
+    <div class="container">
+        <div class="inside inside-container">
+            <img class="mum-logo" src='<c:url value="/etc/images/logo-icon-transparent.svg"/>' alt="" />
+            <img id="profile-img" class="mum-logo" src='<c:url value="/etc/images/biny.jpg"/>' />
+            <p id="profile-name" class="profile-name"></p>
+            <h3 class="form-signin-heading">Sign In</h3>
+            <form class="form-signin" method="post" action="login">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" name="inputEmail" class="form-inputs" placeholder="Email address" required autofocus>
+                <input type="password" id="inputPassword" name="inputPassword" class="form-inputs" placeholder="Password" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form><!-- /form -->
+            
+            
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+        </div><!-- end of inside-container -->
+    </div><!-- end of container -->
 </body>
 </html>
