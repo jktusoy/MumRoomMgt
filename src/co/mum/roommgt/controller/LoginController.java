@@ -56,7 +56,7 @@ public class LoginController extends HttpServlet {
 		System.out.println("username: " + username);
 		System.out.println("password: " + password);
 		if (null != username && !username.equals("") && null != password && !password.equals("")) {
-			if (loginDAO.isValidUser(username)) {
+			if (loginDAO.isValidUser(username, password)) {
 				System.out.println("VALID USER");
 				ROLE_TYPE rt = loginDAO.getUserType(username);
 				Account user = new Account(username, password, rt);
@@ -72,13 +72,11 @@ public class LoginController extends HttpServlet {
 					rd.forward(request, response);
 				}
 			} else {
-				System.out.println("Invalid username or password 1");
 				request.setAttribute("errorMessage", "Invalid username or password");
 				RequestDispatcher rd = request.getRequestDispatcher(login);
 				rd.forward(request, response);
 			}
 		} else {
-			System.out.println("SOMETHING WORN");
 			request.setAttribute("errorMessage", "Invalid username or password");
 			RequestDispatcher rd = request.getRequestDispatcher(login);
 			rd.forward(request, response);

@@ -41,8 +41,7 @@ public class LoginDAO {
 	 *            username
 	 * @return boolean expression
 	 */
-	public boolean isValidUser(String username) {
-		System.out.println("username: " + username);
+	public boolean isValidUser(String username, String password) {
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
@@ -50,6 +49,7 @@ public class LoginDAO {
 			con = DatabaseConnectionFactory.createConnection();
 			pst = con.prepareStatement(rb.getString("isValidUser"));
 			pst.setString(1, username);
+			pst.setString(2, password);
 			rs = pst.executeQuery();
 			int i = 0;
 			while (rs.next()) {
