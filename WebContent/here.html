@@ -10,31 +10,64 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/css/ui.jqgrid.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/jquery.jqgrid.min.js"></script>
+    
     <script>
         //<![CDATA[
         $(function () {
             "use strict";
 
-               $("#jqGrid").jqGrid({
-                    type: "GET",
-                    contentType: "application/json; charset=utf-8",
-                    url: "http://localhost:8080/RoomMgtApp/student?id=1",
-                    colModel: [
-                    { label: 'first name', name: 'name', key: true, width: 75 },
-                    { label: 'last name', name: 'lastName', width: 150 },
-                    { label: 'email', name: 'email', width: 150 }
-                ],
-                data: {"id":1},
-				viewrecords: true,
-                    dataType: "json",
-                    success: function (data, textStatus) {
-                       alert(data);
-                    },
-                    error: function (data, textStatus) {
-                        alert('An error has occured retrieving data!');
-                    }
-                });
             
+               
+               $('#jqGrid').jqGrid('navButtonAdd', '#myGrid_toppager', {
+                   caption: "<select id='gridFilter' onchange='ChangeGridView()'><option>Inbox</option><option>Sent Messages</option></select>",
+                   title: "Apply Filter",
+                   onClickButton: function () {                 
+                   }
+               });
+
+               function ChangeGridView() {
+                   var gridViewFilter = $("#gridFilter").val();
+                   $('#jqGrid').setGridParam({ datatype: 'json', url: '../../Controller/ActionJSON', postData: { msgFilter: gridViewFilter } });
+                   $('#jqGrid').trigger("reloadGrid"); 
+               }; 
+               
+               
+               mygrid = jQuery("#list").jqGrid({
+            	    url:url,
+            	datatype: "json",
+            	height: 'auto',
+            	width: winW,        
+            	colNames:['id','cusipNo','Account No.','Account Type','Location Memo','Account Coding'],
+            	colModel:[
+            	    {name:'Id',index:'stockRecordId',hidden:true,key: true,search: false},
+            	    {name:'cusipNo',index:'cusipNo',hidden:true},   
+            	    {name:'accountNo',index:'accountNo',sortable:true,search: false, align: 'left',editable: true, width: 90, editrules:{custom: true, custom_func: validateAccountNo }},
+            	    {name:'accountType',index:'accountType',sortable:true,search: false, align: 'center',editable: true, width: 100},
+            	    {name:'locationMemo',index:'locationMemo',sortable:true,search: false, align: 'center',editable: true, width: 110},
+            	    {name:'accountCoding',index:'accountCoding',sortable:true,search: false,  align: 'left',editable: true, width: 370, edittype: 'select',
+            	        editoptions: { dataUrl: accCodingUrl , 
+            	                buildSelect: function (data) {
+            	                    var sel = '<select>';
+            	                    $.each(JSON.parse(data),function(i,accountCoding){
+            	                    sel += '<option value="'+accountCoding.key+'">'+accountCoding.value+'</option>';
+            	                        });
+            	                    return sel + "</select>";
+            	                }
+            	            }
+            	}],
+            	cmTemplate: {editable: true},
+            	multiselect: false,     
+            	paging: true,
+            	loadonce:true,
+            	sortname: 'Id',
+            	rowList: [],
+            	rowNum:-1,
+            	pager: $("#page"),      
+            	viewrecords: false,
+            	pgbuttons: false,
+            	pgtext: null});
+            	
+               
         });
 
  
