@@ -1,62 +1,41 @@
+/**
+ * @version 1.0 18 March 2018
+ * @author Joseph Kelly Tusoy
+ */
 
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Reports</title>
-
-<link href="../etc/css/report.css" type="text/css" rel="stylesheet"></link>
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/css/ui.jqgrid.min.css">
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/free-jqgrid/4.15.3/jquery.jqgrid.min.js"></script>
-
-<script>
-	//<![CDATA[
-	$(function() {
-		"use strict";
-
-		$("#jqGrid").jqGrid(
+$(document).ready(function(){  
+	
+	 		    
+		$("#jqGridReport").jqGrid(
 				{
 					url : "http://localhost:8080/RoomMgtApp/report",
-					data : {"report type": "1"},
 					mtype: "POST",
 					datatype : "json",
 					height : 'auto',
-					colNames : [ 'id', 'lastName', 'name', 'email', 'phone',
-							'sex', 'nationality' ],
+					colNames : [ 'roomNumber', 'bldgNumber', 'roomStatus', 'occupiedBy', 'occupiedSince',
+							'notes'],
 					colModel : [ {
-						name : 'Id',
-						index : 'id',
+						name : 'roomNumber',
+						index : 'roomNumber',
 						hidden : true,
 						key : true,
 						search : false
 					}, {
-						name : 'name',
-						index : 'name',
+						name : 'bldgNumber',
+						index : 'bldgNumber',
 					}, {
-						name : 'lastName',
-						index : 'lastName',
+						name : 'roomStatus',
+						index : 'roomStatus',
 					}, {
-						name : 'email',
-						index : 'email',
+						name : 'occupiedBy',
+						index : 'occupiedBy',
 					}, {
-						name : 'phone',
-						index : 'phone',
+						name : 'occupiedSince',
+						index : 'occupiedSince',
 					}, {
-						name : 'sex',
-						index : 'sex',
-					}, {
-						name : 'nationality',
-						index : 'nationality',
+						name : 'notes',
+						index : 'notes',
 					} ],
 					cmTemplate : {
 						editable : true
@@ -71,10 +50,10 @@
 					pgbuttons : true,
 					pgtext : null,
 					rowNum : 10,
-					pager : "#jqGridPager"
+					pager : "#jqGridPagerReport"
 				});
 
-		$('#jqGrid').navGrid('#jqGridPager',
+		$('#jqGridReport').navGrid('#jqGridPagerReport',
 		// the buttons to appear on the toolbar of the grid
 		{
 			edit : true,
@@ -120,18 +99,6 @@
 			}
 
 		});
+    
 
-	});
-</script>
-</head>
-</head>
-<body>
-	<table id="jqGrid"></table>
-	<div id="jqGridPager"></div>
-</body>
-</html>
-
-
-
-
-
+});
