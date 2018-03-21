@@ -43,6 +43,8 @@ h3
     border-bottom: 1px solid #a7a7a7;
     justify-content: right;
     text-align: right;
+   
+    text-shadow: 1px 1px Black;
 }
 
 a {
