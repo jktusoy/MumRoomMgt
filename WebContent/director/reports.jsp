@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Reports</title>
 
- <link href="../etc/css/report.css" type="text/css" rel="stylesheet"></link>
- 
+<link href="../etc/css/report.css" type="text/css" rel="stylesheet"></link>
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css">
 <link rel="stylesheet"
@@ -124,20 +124,12 @@
 </head>
 </head>
 <body>
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-<body>
 	<table id="jqGrid"></table>
 	<div id="jqGridPager"></div>
 </body>
-
 </html>
+
+
+
+
+

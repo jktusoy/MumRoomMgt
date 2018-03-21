@@ -61,7 +61,7 @@ FF, IA
                                  <input type="text" name="email" placeholder="Email.." class="form-control">
                              </div>	
                                                             
-                             <div class="form-group" name="request">
+                             <div class="form-group" >
                                 <label for="exampleFormControlSelect1">Request Type</label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="requesttypes">
                                   <option value="maintainance">Maintainance</option>
