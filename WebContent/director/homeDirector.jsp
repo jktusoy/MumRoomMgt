@@ -72,17 +72,17 @@
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
 							id="nav_profile" href="#">Profile</a></li>
 
-						<li class="active"><i class="fas fa-user fa-fw"></i> <a
+						<li class="active"><i class="fas fa-list-ul"></i> <a
 							id="roomsList" href="#">Rooms List</a></li>
 
-						<li class="active"><i class="fas fa-user fa-fw"></i> <a
+						<li class="active"><i class="fas fa-users"></i> <a
 							id="nav_student">Student List</a></li>
 
-						<li><i class="fas  fa-inbox fa-fw"></i> <a id="nav_departure"
-							href="#">Departure</a></li>
-						<li><i class="fas  fa-check fa-fw"></i><a id="nav_report"
-							href="#">Generate Report></a>
-						<li class="active"><i class="fas fa-user fa-fw"></i> <a
+						<li><i class="fab fa-wpforms"></i>  <a id="nav_departure"
+							href="#">Departure Form</a></li>
+						<li><i class="fas fa-file-pdf"></i>  <a id="nav_report"
+							href="#">Generate Report</a>
+						<li class="active"><i class="fas fa fa-sign-out-alt"></i> <a
 							href="">LogOut</a></li>
 					</ul>
 				</nav>
