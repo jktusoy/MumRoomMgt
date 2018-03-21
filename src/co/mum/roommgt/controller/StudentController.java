@@ -9,11 +9,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import co.mum.roommgt.dao.student.StudentDAO;
+import co.mum.roommgt.model.Account;
 import co.mum.roommgt.model.Student;
 
 /**
@@ -36,6 +37,7 @@ public class StudentController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/json");
@@ -46,13 +48,20 @@ public class StudentController extends HttpServlet {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		List<Student> studentList = new ArrayList<Student>();
 
-		String accId = request.getParameter("id");
+		HttpSession session = request.getSession();
+		Account user = (Account) session.getAttribute("userBean");
+
+		Student stdio = sdao.getStudentsByUserName(user.getUserName());
+		String listAll = request.getParameter("listAll");
+       
 		String jsonOutput = "";
 		
-		if (accId != null && !accId.isEmpty() && !accId.trim().isEmpty()) {
-			Student student = new Student();
-			student = sdao.getStudentById(accId);
-			jsonOutput = gson.toJson(student);
+		// decided to use gson instead of jackson, gson is much lighter 
+		if (stdio == null) {
+			studentList = sdao.getStudents();
+			jsonOutput = gson.toJson(studentList);
+		} else if (listAll == null) {
+			jsonOutput = gson.toJson(stdio);
 		} else {
 			studentList = sdao.getStudents();
 			jsonOutput = gson.toJson(studentList);
@@ -67,6 +76,7 @@ public class StudentController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub

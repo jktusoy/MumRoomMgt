@@ -46,7 +46,8 @@ March 18, 2018
 						Remember me
 					</label>
 				</div>
-				<div class="alert alert-danger">
+				<div class="alert alert-danger"  >
+				     
 						<c:if test="${not empty requestScope.errorMessage}">
 							<h3 class="form-signin-heading">
 								<c:out value="${requestScope.errorMessage}" />

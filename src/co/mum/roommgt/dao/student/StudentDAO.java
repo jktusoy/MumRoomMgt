@@ -10,6 +10,13 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * LoginDAO Description: 01/19/2018
+ * 
+ * @version 1.0 18 March 2018
+ * @author Joseph Kelly Tusoy
+ */
+
 import co.mum.roommgt.model.Student;
 import co.mum.roommgt.util.DBUtil;
 import co.mum.roommgt.util.DatabaseConnectionFactory;
@@ -109,6 +116,49 @@ public class StudentDAO {
 		}
 		return sd;
 
+	}
+	
+	
+	public Student getStudentsByUserName(String username) {
+		System.out.println("getStudentsByUserName  invoked!");
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Student sd = new Student();
+		
+		try {
+			con = DatabaseConnectionFactory.createConnection();
+			pst = con.prepareStatement(rb.getString("getStudentByUserName"));
+			pst.setString(1, username);
+			rs = pst.executeQuery();
+
+			// https://stackoverflow.com/questions/21956042/mapping-a-jdbc-resultset-to-an-object
+			if(rs.next()){
+				sd.setId(rs.getInt("Id"));
+				sd.setName(rs.getString("Name"));
+				sd.setLastName(rs.getString("LastName"));
+				sd.setEmail(rs.getString("Email"));
+				sd.setPhone(rs.getString("Phone"));
+				sd.setSex(rs.getString("Sex"));
+				sd.setNationality(rs.getString("Nationality"));
+				sd.setRoleTypeId(rs.getInt("Role_Typeid"));
+				sd.setAccountId(rs.getInt("AccountId"));
+				return sd;
+				}
+			
+		
+
+		} catch (SQLException sqle) {
+			System.out.println(sqle.getMessage());
+			LOGGER.fine("Error: method getStudentsByUserName method!" + sqle.getMessage());
+		} finally {
+			DBUtil.closePreparedStatement(pst);
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeConnection(con);
+		}
+ 
+		return null;
+ 
 	}
 
 }
