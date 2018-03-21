@@ -33,9 +33,7 @@ March 18, 2018
 		<div class="inside inside-container">
 			<img class="mum-logo"
 				src='<c:url value="/etc/images/logo-icon-transparent.svg"/>' alt="" />
-			<img id="profile-img" class="mum-logo"
-				src='<c:url value="/etc/images/biny.jpg"/>' />
-			<p id="profile-name" class="profile-name"></p>
+			 
 			<h3 class="form-signin-heading">Sign In</h3>
 			<form class="form-signin" method="post" action="login">
 				<span id="reauth-email" class="reauth-email"></span> <input

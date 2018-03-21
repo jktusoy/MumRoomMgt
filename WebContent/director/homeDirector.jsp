@@ -46,25 +46,13 @@
 					<ul class="navigation">
 
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
-							href="#">Profile</a></li>
-						<li><i class="fas  fa-check fa-fw"></i>Manage Rooms
-							<ul class="navigation">
-								<li class="active"><i class="fas fa-user fa-fw"></i> <a
-									href="#" id="roomsList">Rooms List</a></li>
-								<li><i class="fas  fa-inbox fa-fw"></i> Change Room</li>
-								<li><i class="fas  fa-check fa-fw"></i>Assign Room</li>
-							</ul></li>
+							id="nav_profile" href="#">Profile</a></li>
+
+						<li class="active"><i class="fas fa-user fa-fw"></i> <a
+							href="#" id="roomsList">Rooms List</a></li>
+
 						<li><i class="fas  fa-inbox fa-fw"></i> Departure</li>
 						<li><i class="fas  fa-check fa-fw"></i>Generate Report
-
-							<ul class="navigation">
-
-								<li class="active"><i class="fas fa-user fa-fw"></i> <a
-									href="">Rooms Availability</a></li>
-								<li><i class="fas  fa-inbox fa-fw"></i> Room Detail Per
-									Student</li>
-								<li><i class="fas  fa-check fa-fw"></i>Rooms Transfers</li>
-							</ul></li>
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
 							href="">LogOut</a></li>
 					</ul>
@@ -74,9 +62,14 @@
 
 		</div>
 		<div id="content">
-			content
-			<div id="generalContent" style="display: none;">
-				<%@include file="error.jsp"%>
+			<div id="profileContent" style="display: none;">
+				<%@include file="studentProfile.jsp"%>
+			</div>
+			<div id="requestContent" style="display: none;">
+				<%@include file="requestForm.jsp"%>
+			</div>
+			<div id="departureContent" style="display: none;">
+				<%@include file="arrivalForm.jsp"%>
 			</div>
 		</div>
 		<div id="footer">
