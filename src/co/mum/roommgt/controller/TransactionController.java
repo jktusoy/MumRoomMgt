@@ -38,23 +38,6 @@ public class TransactionController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		response.setContentType("text/json");
-		response.setCharacterEncoding("UTF-8");
-
-		PrintWriter out = response.getWriter();
-
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-		String transType = request.getParameter("transType");
-		if (transType.equals(transType)) {
-
-		}
-		String jsonOutput = "";
-
-		out.println(transType);
-		out.flush();
-		out.close();
-
 	}
 
 	/**
@@ -64,16 +47,17 @@ public class TransactionController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// https://stackoverflow.com/questions/3831680/httpservletrequest-get-json-post-data
-		StringBuffer jb = new StringBuffer();
-		String line = null;
-		try {
-			String ss = request.getReader().readLine();
-			Transaction obj = new Gson().fromJson(request.getReader(), Transaction.class);
 
-		} catch (Exception e) {
-			System.out.println("Error parsing JSON request strin" + e.getMessage());
-			throw new IOException("Error parsing JSON request string");
-		}
+		Transaction obj = new Gson().fromJson("{'username':'value','password':'asdf'}", Transaction.class);
+
+		response.setContentType("text/json");
+		response.setCharacterEncoding("UTF-8");
+
+		PrintWriter out = response.getWriter();
+		out.println(obj.getUsername());
+		out.flush();
+		out.close();
+		doGet(request, response);
 
 	}
 
