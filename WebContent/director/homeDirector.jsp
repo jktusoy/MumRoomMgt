@@ -46,25 +46,15 @@
 					<ul class="navigation">
 
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
-							href="">Profile</a></li>
-						<li><i class="fas  fa-check fa-fw"></i>Manage Rooms
-							<ul class="navigation">
-								<li class="active"><i class="fas fa-user fa-fw"></i> <a
-									href="#" id="roomsList">Rooms List</a></li>
-								<li><i class="fas  fa-inbox fa-fw"></i> Change Room</li>
-								<li><i class="fas  fa-check fa-fw"></i>Assign Room</li>
-							</ul></li>
-						<li><i class="fas  fa-inbox fa-fw"></i> Departure</li>
-						<li><i class="fas  fa-check fa-fw"></i>Generate Report
+							id="nav_profile" href="#">Profile</a></li>
 
-							<ul class="navigation">
+						<li class="active"><i class="fas fa-user fa-fw"></i> <a
+							href="#" id="roomsList">Rooms List</a></li>
 
-								<li class="active"><i class="fas fa-user fa-fw"></i> <a
-									href="">Rooms Availability</a></li>
-								<li><i class="fas  fa-inbox fa-fw"></i> Room Detail Per
-									Student</li>
-								<li><i class="fas  fa-check fa-fw"></i>Rooms Transfers</li>
-							</ul></li>
+						<li><i class="fas  fa-inbox fa-fw"></i> <a id="nav_departure"
+							href="#">Departure</a></li>
+						<li><i class="fas  fa-check fa-fw"></i><a id="nav_report"
+							href="#">Generate Report></a>
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
 							href="">LogOut</a></li>
 					</ul>
@@ -74,14 +64,31 @@
 
 		</div>
 		<div id="content">
+<<<<<<< HEAD
 			content
 			
+=======
+			<div id="profileContent" style="display: none;">
+				<%@include file="studentProfile.jsp"%>
+			</div>
+			
+			<div id="roomsContent" style="display: none;">
+			
+			</div>
+			
+			<div id="departureContent" style="display: none;">
+				<%@include file="departureForm.jsp"%>
+			</div>
+			
+			<div id="reportContent" style="display: none;">
+				<%@include file="report.jsp"%>
+			</div>
+>>>>>>> 98afb8c38c14fd5b53e5ec3aa11edcb8775d1de6
 		</div>
 		<div id="footer">
 			<p class="copyright">
-				Copyright © 2010 to Joseph Kelly Tusoy All rights reserved. This
-				website is made in partial fulfillment <br /> for the course
-				CS402-Web Programming.
+				Copyright © 2010 to All rights reserved. This website is made in
+				partial fulfillment <br /> for the course CS402-Web Programming.
 			</p>
 		</div>
 	</div>
