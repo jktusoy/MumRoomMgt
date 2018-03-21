@@ -1,11 +1,9 @@
 package co.mum.roommgt.controller;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -53,6 +51,7 @@ public class RoomController extends HttpServlet {
 	 *                and IOException
 	 * @return No return value.
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("RoomController---");
@@ -77,6 +76,7 @@ public class RoomController extends HttpServlet {
 		}
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("***DOPOST FOR ROOOMS***");

@@ -45,6 +45,7 @@ public class LoginController extends HttpServlet {
 	 *                and IOException
 	 * @return No return value.
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("LoginController---");
@@ -83,6 +84,7 @@ public class LoginController extends HttpServlet {
 		}
 	}
 
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);

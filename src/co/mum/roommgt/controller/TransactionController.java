@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,17 +18,14 @@ import co.mum.roommgt.dao.student.StudentDAO;
 import co.mum.roommgt.model.Account;
 import co.mum.roommgt.model.Student;
 
-/**
- * Servlet implementation class RequestController
- */
-@WebServlet("/RequestController")
-public class RequestController extends HttpServlet {
+ 
+public class TransactionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RequestController() {
+    public TransactionController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,25 +34,25 @@ public class RequestController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/json");
 		response.setCharacterEncoding("UTF-8");
 
 		PrintWriter out = response.getWriter();
 		 
+		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		 
-
+	 
 		String transType = request.getParameter("transType");
-	
-		// decided to use gson instead of jackson, gson is much lighter
-		if (transType.toLowerCase().equals("add")) {
-		 
-		} 
-		System.out.print(transType);
-		 
+
+		String jsonOutput = "";
+
+
 		out.println(transType);
 		out.flush();
 		out.close();
+		
 	}
 
 	/**
