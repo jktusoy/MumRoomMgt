@@ -7,10 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Room Management System</title>
-<link rel="stylesheet" href='<c:url value="/etc/css/admin.css"/>'>
+
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
+	<link rel="stylesheet" href='<c:url value="/etc/css/admin.css"/>'>
 
 <script type="text/javascript"
 	src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
@@ -42,13 +43,7 @@
 <%-- 		</c:if> --%>
 		<div id="subheader">Logged as Student
 		
-		<div id="response">
-				Logged as <a href="#">${sessionScope.userBean.userName}</a>
-				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'>
-					<span>for Building Number
-						${sessionScope.userBean.buildingNumber}</span>
-				</c:if>
-			</div>
+		
 		
 		
 		</div>
@@ -62,9 +57,9 @@
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
 							id="nav_profile">Profile</a></li>
 						<li><i class="fas  fa-inbox fa-fw"></i> <a id="nav_arrival">Arrival</a></li>
-						<li><i class="fas  fa-check fa-fw"></i><a id="nav_request">Make
+						<li><i class="fas fa-share-square"></i> <a id="nav_request">Make
 								Request</a></li>
-						<li class="active"><i class="fas fa-user fa-fw"></i> <a
+						<li class="active"><i class="fas fa fa-sign-out-alt"></i> <a
 							href="">LogOut</a></li>
 					</ul>
 				</nav>

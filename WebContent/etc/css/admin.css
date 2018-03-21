@@ -58,10 +58,6 @@ h3
 }
 
 
-a {
-    text-decoration: none;
-    color: #d8d8d8;
-}
 
 /******* MAIN -- NAVIGATION   *******/
 
@@ -88,6 +84,10 @@ a {
 .navigation li:hover {
     color: white;
     border-radius: 15px;
+}
+a {
+    text-decoration: none;
+    color:#a7ca42 !important;
 }
 
 /******* MAIN -- CONTENT   *******/
