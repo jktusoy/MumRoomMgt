@@ -30,7 +30,8 @@
 <body>
 	<div id="main">
 		<div id="header">
-			<img src="" />
+			<img class="mum-logo"
+				src='<c:url value="/etc/images/logo-icon-transparent.svg"/>' alt="" />
 		<h3>MUM Room Management System </h3>
 			
 		</div>
@@ -46,7 +47,7 @@
 		<div id="subheader">Logged as DIRECTOR
 		
 		<c:if test='${not empty sessionScope.userBean}'>
-			<div id="subheader">
+			<div id="response">
 				Logged as <a href="#">${sessionScope.userBean.userName}</a>
 				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'>
 					<span>for Building Number
@@ -112,7 +113,8 @@
 		</div>
 		<div id="footer">
 			<p class="copyright">
-				Copyright © 2010 to All rights reserved. This website is made in
+				Copyright © 2018 to Binyam Heyi, Joseph Tusoy, William Chaparro.
+				 All rights reserved. <br>This website is made for
 				partial fulfillment <br /> for the course CS402-Web Programming.
 			</p>
 		</div>
