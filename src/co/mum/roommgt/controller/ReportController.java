@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import com.google.gson.GsonBuilder;
 
 import co.mum.roommgt.dao.report.ReportDAO;
 import co.mum.roommgt.model.RoomStatus;
-import co.mum.roommgt.model.Student;
 
 /**
  * LoginController Description: Control the access to application Last Updated:
@@ -25,7 +23,7 @@ import co.mum.roommgt.model.Student;
  * @version 1.0 18 March 2018
  * @author Joseph Kelly Tusoy
  */
-@WebServlet("/ReportController")
+
 public class ReportController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -53,7 +51,8 @@ public class ReportController extends HttpServlet {
 
 		String statusType = request.getParameter("status");
 		String jsonOutput = "";
-		if (statusType != null && !statusType.isEmpty() && !statusType.trim().isEmpty() && !statusType.toLowerCase().trim().equals("all")) {
+		if (statusType != null && !statusType.isEmpty() && !statusType.trim().isEmpty()
+				&& !statusType.toLowerCase().trim().equals("all")) {
 
 			rstatList = rdao.reportRoomStatusFilterByStatus(statusType);
 			jsonOutput = gson.toJson(rstatList);
