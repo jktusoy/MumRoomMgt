@@ -46,7 +46,7 @@ March 18, 2018
 						Remember me
 					</label>
 				</div>
-				<div class="alert alert-danger" id="alert" style="visibility:hidden;" >
+				<div class="alert alert-danger" id="alert" style="display:none;" >
 				     
 						<c:if test="${not empty requestScope.errorMessage}">
 						     <script type="text/javascript">
