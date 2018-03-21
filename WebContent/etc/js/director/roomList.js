@@ -156,9 +156,10 @@ $(document).ready(function() {
 				//checkOnSubmit : true,
 				beforeSubmit : function(postdata, form, oper) {
 					if (confirm('Are you sure you want to update this row?')) {
+						alert('postdata: '+JSON.stringify(postdata));
 						// do something
 				        $.ajax({
-				            url: 'http://localhost:8080/RoomMgtApp/room?modifyRoom=edit',
+				            url: 'http://localhost:8080/RoomMgtApp/room?actionRoom=edit',
 				            data: postdata,
 				            type: 'POST', 
 				            dataType : 'json'
@@ -188,15 +189,50 @@ $(document).ready(function() {
 				closeAfterAdd : true,
 				recreateForm : true,
 				errorTextFormat : function(data) {
+			        $.ajax({
+			            url: 'http://localhost:8080/RoomMgtApp/room?actionRoom=new',
+			            data: postdata,
+			            type: 'POST', 
+			            dataType : 'json'
+			            
+			        })
+			        .done(success)
+			        .fail(fail);
+			        function success(response){
+			            console.log(response);
+			            alert('The data was inserted');
+			        }
+			        function fail(){
+			            console.log('fail');
+			        }					
 					return 'Error: ' + data.responseText
 				}
 			},
 			// options for the Delete Dailog
 			{
 				errorTextFormat : function(data) {
-					return 'Error: ' + data.responseText
+					alert('I am about to delete the row');
+					if (confirm('Are you sure you want to delete this row?')) {
+				        $.ajax({
+				            url: 'http://localhost:8080/RoomMgtApp/room?actionRoom=delete',
+				            data: postdata,
+				            type: 'POST', 
+				            dataType : 'json'
+				            
+				        })
+				        .done(success)
+				        .fail(fail);
+				        function success(response){
+				            console.log(response);
+				            alert('The data was deleted');
+				        }
+				        function fail(){
+				            console.log('fail');
+				        }					
+						return 'Error: ' + data.responseText						
+					} else {
+						return [ false, 'You cannot submit!' ];
+					}
 				}
-
 			});	
-
 });
