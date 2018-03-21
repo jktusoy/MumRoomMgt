@@ -15,6 +15,19 @@ html, body {
     grid-template-rows: 50px 40px auto 40% 10%;
     grid-template-areas: "h h" "n s" "n c" "n c" "n f";
 }
+img{
+    float: left;
+    height: auto;
+    width: auto;
+    max-height: 50px;
+    max-width: 250px;   
+    
+}
+h3
+{
+   
+    text-align: center;
+}
 
 /******* MAIN --HEADER   *******/
 
@@ -28,6 +41,8 @@ html, body {
     background: linear-gradient(to bottom right, #efefef, #b3b3b3);
     border-top: 1px solid #eeeeee;
     border-bottom: 1px solid #a7a7a7;
+    justify-content: right;
+    text-align: right;
 }
 
 a {
@@ -50,7 +65,7 @@ a {
 
 .navigation li {
     padding: 5px;
-    width: 80%;
+    width: 100%;
     color: #d8d8d8;
     margin: 2px;
     text-align: left;
