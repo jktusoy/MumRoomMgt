@@ -17,9 +17,9 @@ import java.util.logging.Logger;
 public class DatabaseConnectionFactory {
 
 	private static final Logger LOGGER = Logger.getLogger(DatabaseConnectionFactory.class.getName());
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/roommgt";
+	private static final String DB_URL = "jdbc:mysql://172.19.141.166:3306/roommgt";
 	private static final String DB_USER = "root";
-	private static final String DB_PASSWORD = "admin";
+	private static final String DB_PASSWORD = "root";
 
 	public DatabaseConnectionFactory() {
 		super();

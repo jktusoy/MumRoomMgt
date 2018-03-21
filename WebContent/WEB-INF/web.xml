@@ -36,6 +36,14 @@
 		<url-pattern>/student</url-pattern>
 	</servlet-mapping> 
 	<servlet>
+		<servlet-name>Room</servlet-name>
+		<servlet-class>co.mum.roommgt.controller.RoomController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Room</servlet-name>
+		<url-pattern>/room</url-pattern>
+	</servlet-mapping> 
+	<servlet>
 		<servlet-name>Report</servlet-name>
 		<servlet-class>co.mum.roommgt.controller.ReportController</servlet-class>
 	</servlet>
