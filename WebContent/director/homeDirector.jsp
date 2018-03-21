@@ -96,6 +96,10 @@
 				<%@include file="roomList.jsp"%>
 			</div>
 			
+			<div id="requestContent" style="display: none;">
+				<%@include file="requests.jsp"%>
+			</div>
+			
 			<div id="profileContent" style="display: none;">
 				<%@include file="studentProfile.jsp"%>
 			</div>
@@ -103,14 +107,14 @@
 			<div id="departureContent" style="display: none;">
 				<%@include file="departureForm.jsp"%>
 			</div>
-
+ 
 			<div id="reportContent" style="display: none;">
 				<%@include file="report.jsp"%>
-			</div>
+			</div>  
 			
 			<div id="studentContent" style="display: none;">
 				<%@include file="students.jsp"%>
-			</div>
+			</div>  
 			
 		</div>
 		<div id="footer">

@@ -53,13 +53,19 @@
 
 				<!-- Tab panes -->
 				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="home">Room
-						Status</div>
-					<div role="tabpanel" class="tab-pane" id="profile">Facility
-						for Room</div>
-					<div role="tabpanel" class="tab-pane" id="messages">Room
-						Transfer</div>
-					<div role="tabpanel" class="tab-pane" id="settings">Graphs</div>
+					<div role="tabpanel" class="tab-pane active" id="home">
+						<div class="row">Room Status</div>
+						<div class="row">
+							<table id="jqGridReport1"></table>
+							<div id="jqGridPageReport1"></div>
+						</div>
+
+
+					</div>
+					<div role="tabpanel" class="tab-pane" id="profile"></div>
+					<div role="tabpanel" class="tab-pane" id="messages"></div>
+					<div role="tabpanel" class="tab-pane" id="settings">
+					</div>
 				</div>
 
 			</div>
