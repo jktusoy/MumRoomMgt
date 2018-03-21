@@ -37,7 +37,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="#home">Available</a></li>
 							<li><a href="#home">Occupied</a></li>
-							<li><a href="#home">On Maintainance</a></li>
+							<li><a href="#home">On Maintenance</a></li>
 						</ul></li>
 					</a>
 					</li>
