@@ -49,7 +49,10 @@
 							id="nav_profile" href="#">Profile</a></li>
 
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
-							href="#" id="roomsList">Rooms List</a></li>
+							id="nav_room" href="#">Rooms List</a></li>
+
+						<li class="active"><i class="fas fa-user fa-fw"></i> <a
+							id="nav_student">Student List</a></li>
 
 						<li><i class="fas  fa-inbox fa-fw"></i> <a id="nav_departure"
 							href="#">Departure</a></li>
@@ -67,18 +70,21 @@
 			<div id="profileContent" style="display: none;">
 				<%@include file="studentProfile.jsp"%>
 			</div>
-			
-			<div id="roomsContent" style="display: none;">
-			
-			</div>
-			
+
+			<div id="roomsContent" style="display: none;"></div>
+
 			<div id="departureContent" style="display: none;">
 				<%@include file="departureForm.jsp"%>
 			</div>
-			
+
 			<div id="reportContent" style="display: none;">
 				<%@include file="report.jsp"%>
 			</div>
+			
+			<div id="reportContent" style="display: none;">
+				<%@include file="students.jsp"%>
+			</div>
+			
 		</div>
 		<div id="footer">
 			<p class="copyright">

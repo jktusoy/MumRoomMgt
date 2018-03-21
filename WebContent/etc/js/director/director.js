@@ -26,7 +26,19 @@ $(document).ready(function(){
     		$('#profileContent').hide();
     		$('#roomsContent').show();
     		$('#departureContent').hide();
-    		$('#reportContent').hide();  	 
+    		$('#reportContent').hide();  
+    		$('#studentContent').hide();  	
+    	});
+    	
+    	
+    	
+
+    	$('#nav_student').click(function() {
+    		$('#profileContent').hide();
+    		$('#roomsContent').hide();
+    		$('#departureContent').hide();
+    		$('#reportContent').hide();  	
+    		$('#studentContent').show();  	
     	});
     	
     	
@@ -35,7 +47,8 @@ $(document).ready(function(){
     		$('#profileContent').hide();
     		$('#roomsContent').hide();
     		$('#departureContent').show();
-    		$('#reportContent').hide();  	 
+    		$('#reportContent').hide();  	
+    		$('#studentContent').hide();  	
     	});
     	
     	
@@ -44,6 +57,7 @@ $(document).ready(function(){
     		$('#roomsContent').hide();
     		$('#departureContent').hide();
     		$('#reportContent').show();  
+    		$('#studentContent').hide();  	
     	});
     
 
