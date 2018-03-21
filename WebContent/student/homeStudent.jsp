@@ -69,7 +69,7 @@
         </div>
         <div id="content">content</div>
         <div id="footer">
-            <p class="copyright">Copyright © 2010 to Joseph Kelly Tusoy All rights reserved. This website is made in partial fulfillment
+            <p class="copyright">Copyright © 2010 to  All rights reserved. This website is made in partial fulfillment
                 <br/> for the course CS402-Web Programming.</p>
         </div>
     </div>
