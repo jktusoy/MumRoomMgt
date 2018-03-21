@@ -43,8 +43,8 @@ public class RoomDAO {
 	 *            username
 	 * @return Collection of Rooms objects
 	 */
-	public List<Room> getRoomsByDirector(String username) {
-		System.out.println("***getRoomsByDirector***");
+	public List<Room> getRoomsByDirector(int buildingNumber) {
+		System.out.println("***getRoomsByDirector - buildingNumber***"+buildingNumber);
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
@@ -52,7 +52,7 @@ public class RoomDAO {
 		try {
 			con = DatabaseConnectionFactory.createConnection();
 			pst = con.prepareStatement(rb.getString("getRoomsByDirector"));
-			pst.setString(1, username);
+			pst.setInt(1, buildingNumber);
 			rs = pst.executeQuery();
 			while (rs.next()) {
 				Room room = new Room();
@@ -71,6 +71,7 @@ public class RoomDAO {
 				room.setRoom_number(rs.getString("room_number"));
 				room.setBuilding_number(rs.getString("building_number"));
 				room.setLast_Updated_By(rs.getString("Last_Updated_By"));
+				room.setNotes(rs.getString("notes"));
 				roomList.add(room);
 			}
 		} catch (SQLException sqle) {

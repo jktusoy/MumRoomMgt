@@ -22,7 +22,6 @@
 
 </head>
 <body>
-
 	<table id="jqGridStudent"></table>
 	<div id="jqGridPagerStudent"></div>
 

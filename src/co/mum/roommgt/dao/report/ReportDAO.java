@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import co.mum.roommgt.model.FacilityStatus;
 import co.mum.roommgt.model.RoomStatus;
 import co.mum.roommgt.util.DBUtil;
 import co.mum.roommgt.util.DatabaseConnectionFactory;
@@ -109,5 +110,60 @@ public class ReportDAO {
 	 
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	public List<FacilityStatus> reportFacilityStatus() {
+		System.out.println("reportFacilityStatus invoked!");
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		List<FacilityStatus> facilList = new ArrayList<FacilityStatus>();
+
+		try {
+			con = DatabaseConnectionFactory.createConnection();
+			pst = con.prepareStatement(rb.getString("reportFacilityStatus"));
+			rs = pst.executeQuery();
+			
+			while (rs.next()) {
+				FacilityStatus rd = new FacilityStatus();
+				rd.setArrivalid(rs.getInt("ArrivalId"));
+				rd.setBookshelf(rs.getString("Bookshelf"));
+				rd.setBuilding_number(rs.getInt("building_number"));
+				rd.setChair(rs.getString("Chair"));
+				rd.setDepartureid(rs.getInt("DepartureId"));
+				rd.setDresser(rs.getString("Dresser"));
+				rd.setFrame(rs.getString("Frame"));
+				rd.setId(rs.getInt("Id"));
+				rd.setLast_updated_by(rs.getString("Last_Updated_By"));
+				rd.setMattress(rs.getString("Mattress"));
+				rd.setRecycle_bin(rs.getString("Recycle_bin"));
+				rd.setRoom_number(rs.getInt("room_number"));
+				rd.setStatus(rs.getString("Status"));
+				rd.setDesk(rs.getString("Desk"));
+				rd.setWastebasket(rs.getString("Wastebasket"));
+				facilList.add(rd);
+			}
+			
+ 
+			return facilList;
+
+		} catch (SQLException sqle) {
+			LOGGER.fine("Error: method getStudents method!" + sqle.getMessage());
+		} finally {
+			DBUtil.closePreparedStatement(pst);
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeConnection(con);
+		}
+		return null;
+	}
+
+	
+	
+	
 
 }

@@ -7,7 +7,7 @@
 $(document).ready(function(){  
 	
 	 		    
-		$("#jqGridReport").jqGrid(
+		$("#jqGridReport1").jqGrid(
 				{
 					url : "http://localhost:8080/RoomMgtApp/report",
 					mtype: "POST",
@@ -50,10 +50,10 @@ $(document).ready(function(){
 					pgbuttons : true,
 					pgtext : null,
 					rowNum : 10,
-					pager : "#jqGridPagerReport"
+					pager : "#jqGridPageReport1"
 				});
 
-		$('#jqGridReport').navGrid('#jqGridPagerReport',
+		$('#jqGridReport1').navGrid('#jqGridPageReport1',
 		// the buttons to appear on the toolbar of the grid
 		{
 			edit : true,

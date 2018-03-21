@@ -26,6 +26,8 @@ public class Room {
 	private String room_number;
 	private String building_number;
 	private String Last_Updated_By;
+	private String studentFullName;
+	private String notes;
 
 	public int getId() {
 		return id;
@@ -157,4 +159,22 @@ public class Room {
 		Last_Updated_By = last_Updated_By;
 	}
 
+	public String getStudentFullName() {
+		return studentFullName;
+	}
+
+	public void setStudentFullName(String studentFullName) {
+		this.studentFullName = studentFullName;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+	
+	
+	
 }

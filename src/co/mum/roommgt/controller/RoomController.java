@@ -66,7 +66,7 @@ public class RoomController extends HttpServlet {
 		Account user = (Account) session.getAttribute("userBean");
 		if (null != user && null != user.getUserName() && !user.getUserName().equals("")) {
 			System.out.println("username: " + user.getUserName());
-			roomsByDirectorList = dao.getRoomsByDirector(user.getUserName());
+			roomsByDirectorList = dao.getRoomsByDirector(user.getBuildingNumber());
 			jsonOutput = gson.toJson(roomsByDirectorList);
 			out.println(jsonOutput);
 			out.flush();
