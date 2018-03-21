@@ -16,9 +16,9 @@ March 18, 2018
 	rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href='<c:url value="/etc/css/login.css"/>'>
 <title>Room Management System</title>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="login.js"></script> -->
+<script src="login.js"></script>
 
 <title>Login form</title>
 </head>
@@ -46,9 +46,14 @@ March 18, 2018
 						Remember me
 					</label>
 				</div>
-				<div class="alert alert-danger"  >
+				<div class="alert alert-danger" id="alert" style="visibility:hidden;" >
 				     
 						<c:if test="${not empty requestScope.errorMessage}">
+						     <script type="text/javascript">
+          							  $(document).ready(function(){
+                                                $("#alert").show();
+          									  });
+       						</script>
 							<h3 class="form-signin-heading">
 								<c:out value="${requestScope.errorMessage}" />
 							</h3>
@@ -65,5 +70,6 @@ March 18, 2018
 		<!-- end of inside-container -->
 	</div>
 	<!-- end of container -->
+	
 </body>
 </html>
