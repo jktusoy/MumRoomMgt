@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Room Management System</title>
-<link rel="stylesheet" href='<c:url value="/etc/css/admin.css"/>'>
+<link rel="stylesheet" href='<c:url value="../etc/css/admin.css"/>'>
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -75,9 +75,7 @@
 		</div>
 		<div id="content">
 			content
-			<div id="generalContent" style="display: none;">
-				<%@include file="error.jsp"%>
-			</div>
+			
 		</div>
 		<div id="footer">
 			<p class="copyright">
