@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Room Management System</title>
-<link rel="stylesheet" href='<c:url value="/etc/css/student.css"/>'>
+<link rel="stylesheet" href='<c:url value="/etc/css/admin.css"/>'>
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -26,19 +26,31 @@
 </head>
 <body>
 	<div id="main">
-		<div id="header">
-			<img src="" />
+		<div id="header">		
+			<img src="<c:url value="WebContent/etc/images/logo-icon-transparent.svg"/>" />
+			<h3>MUM Room Management System </h3>
 		</div>
-		<c:if test='${not empty sessionScope.userBean}'>
-			<div id="header">
+<%-- 		<c:if test='${not empty sessionScope.userBean}'> --%>
+<!-- 			<div id="header"> -->
+<%-- 				Logged as <a href="#">${sessionScope.userBean.userName}</a> --%>
+<%-- 				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'> --%>
+<!-- 					<span>for Building Number -->
+<%-- 						${sessionScope.userBean.buildingNumber} </span> --%>
+<%-- 				</c:if> --%>
+<!-- 			</div> -->
+<%-- 		</c:if> --%>
+		<div id="subheader">Logged as Student
+		
+		<div id="subheader">
 				Logged as <a href="#">${sessionScope.userBean.userName}</a>
 				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'>
 					<span>for Building Number
-						${sessionScope.userBean.buildingNumber} </span>
+						${sessionScope.userBean.buildingNumber}</span>
 				</c:if>
 			</div>
-		</c:if>
-		<div id="subheader">subheader - FOR STUDENT</div>
+		
+		
+		</div>
 		<div id="navigation" class="aside">
 
 			<!-- My-->
