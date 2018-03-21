@@ -23,27 +23,27 @@
 		<servlet-name>Login</servlet-name>
 		<servlet-class>co.mum.roommgt.controller.LoginController</servlet-class>
 	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>Student</servlet-name>
 		<servlet-class>co.mum.roommgt.controller.StudentController</servlet-class>
 	</servlet>
+	<servlet-mapping>
+		<servlet-name>Student</servlet-name>
+		<url-pattern>/student</url-pattern>
+	</servlet-mapping> 
 	<servlet>
 		<servlet-name>Report</servlet-name>
 		<servlet-class>co.mum.roommgt.controller.ReportController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Login</servlet-name>
-		<url-pattern>/login</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>Report</servlet-name>
 		<url-pattern>/report</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>Student</servlet-name>
-		<url-pattern>/student</url-pattern>
 	</servlet-mapping>
 	<session-config>
 		<session-timeout>30</session-timeout>
 	</session-config>
-	</web-app>
+</web-app>
