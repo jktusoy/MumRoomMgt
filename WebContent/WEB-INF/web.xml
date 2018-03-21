@@ -34,7 +34,7 @@
 	<servlet-mapping>
 		<servlet-name>Student</servlet-name>
 		<url-pattern>/student</url-pattern>
-	</servlet-mapping> 
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>Room</servlet-name>
 		<servlet-class>co.mum.roommgt.controller.RoomController</servlet-class>
@@ -42,7 +42,7 @@
 	<servlet-mapping>
 		<servlet-name>Room</servlet-name>
 		<url-pattern>/room</url-pattern>
-	</servlet-mapping> 
+	</servlet-mapping>
 	<servlet>
 		<servlet-name>Report</servlet-name>
 		<servlet-class>co.mum.roommgt.controller.ReportController</servlet-class>
@@ -50,6 +50,14 @@
 	<servlet-mapping>
 		<servlet-name>Report</servlet-name>
 		<url-pattern>/report</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Request</servlet-name>
+		<servlet-class>co.mum.roommgt.controller.RequestController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Request</servlet-name>
+		<url-pattern>/request</url-pattern>
 	</servlet-mapping>
 	<session-config>
 		<session-timeout>30</session-timeout>
