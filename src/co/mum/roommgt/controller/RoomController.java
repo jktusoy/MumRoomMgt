@@ -20,6 +20,7 @@ import com.google.gson.GsonBuilder;
 import co.mum.roommgt.dao.room.RoomDAO;
 import co.mum.roommgt.model.Account;
 import co.mum.roommgt.model.Room;
+import co.mum.roommgt.model.Transaction;
 import co.mum.roommgt.util.DatabaseConnectionFactory;
 
 /**
@@ -79,11 +80,17 @@ public class RoomController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("***DOPOST FOR ROOOMS***");
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String body = request.getReader().lines().collect(Collectors.joining());
-		System.out.println("body : " + body);
-
+		System.out.println("***doPost method 4 Rooms***");
+		String action = request.getParameter("actionRoom");
+		if (null != action && !action.equals("")) {
+			System.out.println("-ACTION: " + action);
+			Room obj = new Gson().fromJson(request.getReader().readLine(), Room.class);
+			response.setContentType("text/json");
+			response.setCharacterEncoding("UTF-8");
+			System.out.println("Room obj : " + obj);
+		} else {
+			LOGGER.fine("Error: Invalid operation on doPost Room-doPost method!");
+		}
 	}
 
 }
