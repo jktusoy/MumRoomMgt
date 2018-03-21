@@ -17,6 +17,8 @@
 
 <script src='<c:url value="/etc/js/director/director.js"/>'></script>
 
+<script src='<c:url value="/etc/js/director/students.js"/>'></script>
+
 <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300"

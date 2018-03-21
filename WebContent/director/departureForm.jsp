@@ -16,8 +16,7 @@ FF, IA
 <link
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet"
-	href="../../WebContent/WEB-INF/css/studentProfile.css">
+
 </head>
 <body>
 

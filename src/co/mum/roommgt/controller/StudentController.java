@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import co.mum.roommgt.dao.student.StudentDAO;
 import co.mum.roommgt.model.Account;
 import co.mum.roommgt.model.Student;
@@ -53,10 +54,10 @@ public class StudentController extends HttpServlet {
 
 		Student stdio = sdao.getStudentsByUserName(user.getUserName());
 		String listAll = request.getParameter("listAll");
-       
+
 		String jsonOutput = "";
-		
-		// decided to use gson instead of jackson, gson is much lighter 
+
+		// decided to use gson instead of jackson, gson is much lighter
 		if (stdio == null) {
 			studentList = sdao.getStudents();
 			jsonOutput = gson.toJson(studentList);
@@ -79,8 +80,21 @@ public class StudentController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		PrintWriter out = response.getWriter();
+		StudentDAO sdao = new StudentDAO();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		List<Student> studentList = new ArrayList<Student>();
+
+		String jsonOutput = "";
+
+		studentList = sdao.getStudents();
+		jsonOutput = gson.toJson(studentList);
+
+		out.println(jsonOutput);
+		out.flush();
+		out.close();
+
 	}
 
 }

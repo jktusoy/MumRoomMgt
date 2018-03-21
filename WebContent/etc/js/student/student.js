@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	
+	console.log("initiated student.js");
 	$('#nav_profile').click(function() {
 		$('#profileContent').show();
 		$('#requestContent').hide();

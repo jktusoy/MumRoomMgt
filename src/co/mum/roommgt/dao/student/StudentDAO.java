@@ -93,7 +93,7 @@ public class StudentDAO {
 			rs = pst.executeQuery();
 
 			// https://stackoverflow.com/questions/21956042/mapping-a-jdbc-resultset-to-an-object
-			if(rs.next()){
+			if (rs.next()) {
 				sd.setId(rs.getInt("Id"));
 				sd.setName(rs.getString("Name"));
 				sd.setLastName(rs.getString("LastName"));
@@ -103,8 +103,7 @@ public class StudentDAO {
 				sd.setNationality(rs.getString("Nationality"));
 				sd.setRoleTypeId(rs.getInt("Role_Typeid"));
 				sd.setAccountId(rs.getInt("AccountId"));
-				}
-			
+			}
 
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
@@ -117,15 +116,15 @@ public class StudentDAO {
 		return sd;
 
 	}
-	
-	
-	public Student getStudentsByUserName(String username) {
+
+	public boolean isUserAnAdmin(String username) {
+
 		System.out.println("getStudentsByUserName  invoked!");
 		Connection con = null;
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		Student sd = new Student();
-		
+
 		try {
 			con = DatabaseConnectionFactory.createConnection();
 			pst = con.prepareStatement(rb.getString("getStudentByUserName"));
@@ -133,7 +132,42 @@ public class StudentDAO {
 			rs = pst.executeQuery();
 
 			// https://stackoverflow.com/questions/21956042/mapping-a-jdbc-resultset-to-an-object
-			if(rs.next()){
+			if (rs.next()) {
+
+				if (rs.getInt("Role_Typeid") == 1 || rs.getInt("Role_Typeid") == 2) {
+					return true;
+				}
+
+			}
+
+		} catch (SQLException sqle) {
+			System.out.println(sqle.getMessage());
+			LOGGER.fine("Error: method getStudentsByUserName method!" + sqle.getMessage());
+		} finally {
+			DBUtil.closePreparedStatement(pst);
+			DBUtil.closeResultSet(rs);
+			DBUtil.closeConnection(con);
+		}
+
+		return false;
+
+	}
+
+	public Student getStudentsByUserName(String username) {
+		System.out.println("getStudentsByUserName  invoked!");
+		Connection con = null;
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		Student sd = new Student();
+
+		try {
+			con = DatabaseConnectionFactory.createConnection();
+			pst = con.prepareStatement(rb.getString("getStudentByUserName"));
+			pst.setString(1, username);
+			rs = pst.executeQuery();
+
+			// https://stackoverflow.com/questions/21956042/mapping-a-jdbc-resultset-to-an-object
+			if (rs.next()) {
 				sd.setId(rs.getInt("Id"));
 				sd.setName(rs.getString("Name"));
 				sd.setLastName(rs.getString("LastName"));
@@ -144,9 +178,7 @@ public class StudentDAO {
 				sd.setRoleTypeId(rs.getInt("Role_Typeid"));
 				sd.setAccountId(rs.getInt("AccountId"));
 				return sd;
-				}
-			
-		
+			}
 
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
@@ -156,9 +188,9 @@ public class StudentDAO {
 			DBUtil.closeResultSet(rs);
 			DBUtil.closeConnection(con);
 		}
- 
+
 		return null;
- 
+
 	}
 
 }

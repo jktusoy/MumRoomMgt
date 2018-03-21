@@ -7,10 +7,11 @@
 $(document).ready(function(){  
 	
 	 
-		$("#jqGrid").jqGrid(
+		$("#jqGridStudent").jqGrid(
 				{
                   //change to relative path
-					url : "http://localhost:8080/RoomMgtApp/student/listAll=1",
+					url : "http://localhost:8080/RoomMgtApp/student",
+					mtype:"POST",
 					datatype : "json",
 					height : 'auto',
 					colNames : [ 'id', 'lastName', 'name', 'email', 'phone',
@@ -53,10 +54,10 @@ $(document).ready(function(){
 					pgbuttons : true,
 					pgtext : null,
 					rowNum : 10,
-					pager : "#jqGridPager"
+					pager : "#jqGridPagerStudent"
 				});
 
-		$('#jqGrid').navGrid('#jqGridPager',
+		$('#jqGridStudent').navGrid('#jqGridPagerStudent',
 		// the buttons to appear on the toolbar of the grid
 		{
 			edit : true,
