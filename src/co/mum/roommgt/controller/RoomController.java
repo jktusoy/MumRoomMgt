@@ -83,7 +83,7 @@ public class RoomController extends HttpServlet {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String body = request.getReader().lines().collect(Collectors.joining());
 		System.out.println("body : " + body);
-			
+
 	}
 
 }
