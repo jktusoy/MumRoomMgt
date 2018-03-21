@@ -10,6 +10,13 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * LoginDAO Description: 01/19/2018
+ * 
+ * @version 1.0 18 March 2018
+ * @author Joseph Kelly Tusoy
+ */
+
 import co.mum.roommgt.model.Student;
 import co.mum.roommgt.util.DBUtil;
 import co.mum.roommgt.util.DatabaseConnectionFactory;

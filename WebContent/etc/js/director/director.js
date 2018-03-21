@@ -1,18 +1,10 @@
 $(document).ready(function(){
 	 
-
-    $('#roomsList').click(function(){
-
-    	 $('#generalContent').show();
-    });
-    
-    
-    
- 
     	$('#nav_profile').click(function() {
     		$('#profileContent').show();
-    		$('#requestContent').hide();
-    		$('#arrivalContent').hide();
+    		$('#roomsContent').hide();
+    		$('#departureContent').hide();
+    		$('#reportContent').hide();  	 
     	
     	 
     		$.ajax({
@@ -30,6 +22,29 @@ $(document).ready(function(){
     	});
     	
     
+    	$('#nav_rooms').click(function() {
+    		$('#profileContent').hide();
+    		$('#roomsContent').show();
+    		$('#departureContent').hide();
+    		$('#reportContent').hide();  	 
+    	});
+    	
+    	
+    	 
+    	$('#nav_departure').click(function() {
+    		$('#profileContent').hide();
+    		$('#roomsContent').hide();
+    		$('#departureContent').show();
+    		$('#reportContent').hide();  	 
+    	});
+    	
+    	
+    	$('#nav_report').click(function() {
+    		$('#profileContent').hide();
+    		$('#roomsContent').hide();
+    		$('#departureContent').hide();
+    		$('#reportContent').show();  
+    	});
     
 
 });

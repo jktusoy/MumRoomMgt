@@ -55,8 +55,8 @@ public class StudentController extends HttpServlet {
 		String listAll = request.getParameter("listAll");
        
 		String jsonOutput = "";
-
-	
+		
+		// decided to use gson instead of jackson, gson is much lighter 
 		if (stdio == null) {
 			studentList = sdao.getStudents();
 			jsonOutput = gson.toJson(studentList);

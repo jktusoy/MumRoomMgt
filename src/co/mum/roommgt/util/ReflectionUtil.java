@@ -8,7 +8,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import co.mum.roommgt.model.Col;
- 
+/**
+ * LoginDAO Description: 01/19/2018
+ * 
+ * @version 1.0 18 March 2018
+ * @author Joseph Kelly Tusoy
+ */
 
 public class ReflectionUtil<T> {
 	//https://stackoverflow.com/questions/21956042/mapping-a-jdbc-resultset-to-an-object
@@ -18,10 +23,11 @@ public class ReflectionUtil<T> {
 	{	
 	}
 	
-	 
+	// Will work on improving this   
 	@SuppressWarnings("unchecked")
 	public List<T> JavaObjectify (ResultSet rs, T obj) throws SecurityException, SQLException 
 	{
+		//https://stackoverflow.com/questions/39361102/how-to-use-reflection-to-identify-annotated-methods
 		List<T> resultList = new ArrayList<T>();
 		T dto;
 		

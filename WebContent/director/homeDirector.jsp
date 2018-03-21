@@ -51,8 +51,10 @@
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
 							href="#" id="roomsList">Rooms List</a></li>
 
-						<li><i class="fas  fa-inbox fa-fw"></i> Departure</li>
-						<li><i class="fas  fa-check fa-fw"></i>Generate Report
+						<li><i class="fas  fa-inbox fa-fw"></i> <a id="nav_departure"
+							href="#">Departure</a></li>
+						<li><i class="fas  fa-check fa-fw"></i><a id="nav_report"
+							href="#">Generate Report></a>
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
 							href="">LogOut</a></li>
 					</ul>
@@ -65,18 +67,23 @@
 			<div id="profileContent" style="display: none;">
 				<%@include file="studentProfile.jsp"%>
 			</div>
-			<div id="requestContent" style="display: none;">
-				<%@include file="requestForm.jsp"%>
+			
+			<div id="roomsContent" style="display: none;">
+			
 			</div>
+			
 			<div id="departureContent" style="display: none;">
-				<%@include file="arrivalForm.jsp"%>
+				<%@include file="departureForm.jsp"%>
+			</div>
+			
+			<div id="reportContent" style="display: none;">
+				<%@include file="report.jsp"%>
 			</div>
 		</div>
 		<div id="footer">
 			<p class="copyright">
-				Copyright © 2010 to Joseph Kelly Tusoy All rights reserved. This
-				website is made in partial fulfillment <br /> for the course
-				CS402-Web Programming.
+				Copyright © 2010 to All rights reserved. This website is made in
+				partial fulfillment <br /> for the course CS402-Web Programming.
 			</p>
 		</div>
 	</div>

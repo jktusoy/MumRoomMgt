@@ -13,7 +13,12 @@ import java.util.logging.Logger;
 import co.mum.roommgt.model.RoomStatus;
 import co.mum.roommgt.util.DBUtil;
 import co.mum.roommgt.util.DatabaseConnectionFactory;
-
+/**
+ * LoginDAO Description: 01/19/2018
+ * 
+ * @version 1.0 18 March 2018
+ * @author Joseph Kelly Tusoy
+ */
 public class ReportDAO {
 
 	private ResourceBundle rb;
