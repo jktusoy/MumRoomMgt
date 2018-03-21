@@ -1,11 +1,14 @@
 package co.mum.roommgt.controller;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,8 +44,8 @@ public class RoomController extends HttpServlet {
 	}
 
 	/**
-	 * Servlet implementation in charge of validate users and redirect to home or
-	 * login JSP pages.
+	 * Servlet implementation in charge of Room logic, insert, update and delete
+	 * data
 	 * 
 	 * @param arg
 	 *            request object and response object.
@@ -62,6 +65,7 @@ public class RoomController extends HttpServlet {
 		HttpSession session = request.getSession();
 		Account user = (Account) session.getAttribute("userBean");
 		if (null != user && null != user.getUserName() && !user.getUserName().equals("")) {
+			System.out.println("username: " + user.getUserName());
 			roomsByDirectorList = dao.getRoomsByDirector(user.getUserName());
 			jsonOutput = gson.toJson(roomsByDirectorList);
 			out.println(jsonOutput);
@@ -75,8 +79,11 @@ public class RoomController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
-
+		System.out.println("***DOPOST FOR ROOOMS***");
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String body = request.getReader().lines().collect(Collectors.joining());
+		System.out.println("body : " + body);
+			
 	}
 
 }

@@ -1,5 +1,10 @@
 $(document).ready(function(){
 	 
+		$('#roomsList').click(function(){
+			 console.log('I was clicked');
+			 $('#generalContent').show();
+		});
+	 
     	$('#nav_profile').click(function() {
     		$('#profileContent').show();
     		$('#roomsContent').hide();

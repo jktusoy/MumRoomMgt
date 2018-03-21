@@ -21,6 +21,8 @@
 
 <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
+
+
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300"
 	rel="stylesheet">
 </head>
@@ -51,7 +53,7 @@
 							id="nav_profile" href="#">Profile</a></li>
 
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
-							id="nav_room" href="#">Rooms List</a></li>
+							id="roomsList" href="#">Rooms List</a></li>
 
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
 							id="nav_student">Student List</a></li>
@@ -69,6 +71,11 @@
 
 		</div>
 		<div id="content">
+		
+			<div id="generalContent" style="display: none;">
+				<%@include file="roomList.jsp"%>
+			</div>
+			
 			<div id="profileContent" style="display: none;">
 				<%@include file="studentProfile.jsp"%>
 			</div>
