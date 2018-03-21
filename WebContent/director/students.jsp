@@ -22,16 +22,9 @@
 
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-			 	<h1>STUDENT LIST</h1>
-				<table id="jqGridStudent"></table>
-				<div id="jqGridPagerStudent"></div>
-			</div>
-		</div>
 
+	<table id="jqGridStudent"></table>
+	<div id="jqGridPagerStudent"></div>
 
-	</div>
 </body>
 </html>

@@ -27,6 +27,8 @@
 		$("#jqGrid").jqGrid(
 				{
 					url : "http://localhost:8080/RoomMgtApp/report",
+					data : {"report type": "1"},
+					mtype: "POST",
 					datatype : "json",
 					height : 'auto',
 					colNames : [ 'id', 'lastName', 'name', 'email', 'phone',

@@ -80,8 +80,6 @@
 				<%@include file="studentProfile.jsp"%>
 			</div>
 
-			<div id="roomsContent" style="display: none;"></div>
-
 			<div id="departureContent" style="display: none;">
 				<%@include file="departureForm.jsp"%>
 			</div>
@@ -90,7 +88,7 @@
 				<%@include file="report.jsp"%>
 			</div>
 			
-			<div id="reportContent" style="display: none;">
+			<div id="studentContent" style="display: none;">
 				<%@include file="students.jsp"%>
 			</div>
 			
