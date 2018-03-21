@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    console.log('hello');
+	 alert('first load');
 
     $('#roomsList').click(function(){
-    	 console.log('I was clicked');
+    	 alert('I was clicked');
     	 $('#generalContent').show();
     });
 

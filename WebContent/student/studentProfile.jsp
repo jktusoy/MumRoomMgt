@@ -11,7 +11,6 @@ FF, IA
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Student Profile Customization form</title>
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href='<c:url value="/etc/css/studentProfile.css"/>' id="bootstrap-css">
 </head>
 <body>
@@ -27,7 +26,7 @@ FF, IA
                             <div class="col-sm-12">
                                     <div class="col-md-3">
                                             <div class="text-center">
-                                              <img src="../WEB-INF/images/biny.jpg" class="avatar img-circle" alt="avatar">
+                                              <img src='<c:url value="/etc/images/biny.jpg"/>' class="avatar img-circle" alt="avatar">
                                               <h6>Upload a different photo...</h6>
                                               
                                               <input type="file" class="form-control">
@@ -36,22 +35,22 @@ FF, IA
                                 <div class="row">
                                     <div class="col-sm-6 form-group">
                                         <label>First Name</label>
-                                        <input type="text" placeholder="Enter First Name Here.." class="form-control">
+                                        <input type="text" id="sprof-firstname" placeholder="Enter First Name Here.." class="form-control">
                                     </div>
                                     <div class="col-sm-6 form-group">
                                         <label>Last Name</label>
-                                        <input type="text" placeholder="Enter Last Name Here.." class="form-control">
+                                        <input type="text" id="sprof-lastname" placeholder="Enter Last Name Here.." class="form-control">
                                     </div>
                                 </div>					
                                
                                 <div class="row">
                                     <div class="col-sm-4 form-group">
                                         <label>Building</label>
-                                        <input type="text" placeholder="Building.." class="form-control">
+                                        <input type="text" id="sprof-bldgno" placeholder="Building.." class="form-control">
                                     </div>	
                                     <div class="col-sm-4 form-group">
                                         <label>Room Number</label>
-                                        <input type="text" placeholder="Room Number.." class="form-control">
+                                        <input type="text"  id="sprof-roomno" placeholder="Room Number.." class="form-control">
                                     </div>	
                                    
                                 </div>
@@ -64,11 +63,11 @@ FF, IA
                                 </div>						
                             <div class="form-group">
                                 <label>Phone Number</label>
-                                <input type="text" placeholder="Phone Number.." class="form-control">
+                                <input type="text" id="sprof-phone" placeholder="Phone Number.." class="form-control">
                             </div>		
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input type="text" placeholder="Email.." class="form-control">
+                                <input type="text" id="sprof-email" placeholder="Email.." class="form-control">
                             </div>	
                           
                             <button type="button" class="btn btn-lg btn-info">Submit</button>					

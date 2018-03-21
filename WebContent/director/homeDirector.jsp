@@ -46,7 +46,7 @@
 					<ul class="navigation">
 
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
-							href="">Profile</a></li>
+							href="#">Profile</a></li>
 						<li><i class="fas  fa-check fa-fw"></i>Manage Rooms
 							<ul class="navigation">
 								<li class="active"><i class="fas fa-user fa-fw"></i> <a
