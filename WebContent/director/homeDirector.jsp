@@ -97,7 +97,7 @@
 			</div>
 			
 			<div id="requestContent" style="display: none;">
-				<%@include file="requests.jsp"%>
+				  
 			</div>
 			
 			<div id="profileContent" style="display: none;">

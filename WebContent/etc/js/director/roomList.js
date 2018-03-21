@@ -8,8 +8,8 @@ $(document).ready(function() {
 				datatype : "json",
 				height : 'auto',
 				
-				colNames : [ 'id', 'Room Number','Status', 'Frame', 'Mattress', 'Desk',
-						'Chair', 'Bookshelf','Dresser','Waste Basket','Recycle Bin','Arrival Number','Departure Number','Last Updated By','Notes' ],
+				colNames : [ 'id', 'Room Number','Status', 'First Name', 'Last Name', 'Frame', 'Mattress', 'Desk',
+						'Chair', 'Bookshelf','Dresser','Waste Basket','Recycle Bin','Arrival Number','Departure Number','Last Updated By','Notes'],
 				colModel : [ {
 					name : 'id',
 					index : 'id',
@@ -26,6 +26,14 @@ $(document).ready(function() {
 					formatter:'select',
 					align: 'center',
 					editoptions: { value:"Occupied:Occupied;Vacant:Vacant;Needs Cleaning:Needs Cleaning;Ready:Ready;Reserved:Reserved;Vacant:Vacant" }
+				}, {
+					name : 'studentName',
+					index : 'studentName',
+					editable: false
+				}, {
+					name : 'studentLastName',
+					index : 'studentLastName',
+					editable: false
 				}, {
 					name : 'frame',
 					index : 'frame',
@@ -108,7 +116,7 @@ $(document).ready(function() {
 					name : 'notes',
 					index : 'notes',
 					width: 180
-				}  ],
+				}],
 				cmTemplate : {
 					editable : true
 				},
