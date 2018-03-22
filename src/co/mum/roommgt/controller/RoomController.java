@@ -1,5 +1,6 @@
 package co.mum.roommgt.controller;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonSyntaxException;
 
 import co.mum.roommgt.dao.room.RoomDAO;
 import co.mum.roommgt.model.Account;
@@ -78,10 +80,22 @@ public class RoomController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("***doPost method 4 Rooms***");
-		String action = request.getParameter("actionRoom");
-		if (null != action && !action.equals("")) {
+		// String action = request.getParameter("actionRoom");
+		PrintWriter out = response.getWriter();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		StringBuilder buffer = new StringBuilder();
+		BufferedReader reader = request.getReader();
 
+		String line;
+		while ((line = reader.readLine()) != null) {
+			buffer.append(line);
+		}
+		String data = buffer.toString();
+		System.out.println("data: " + data);
+		try {
+			Room room = gson.fromJson(data, Room.class);
+		} catch (IllegalStateException | JsonSyntaxException e) {
+			e.printStackTrace();
 		}
 	}
 
