@@ -81,16 +81,16 @@ public class RoomController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("***doPost method 4 Rooms***");
-		String action = request.getParameter("actionRoom");
-		if (null != action && !action.equals("")) {
-			System.out.println("-ACTION: " + action);
-			Room obj = new Gson().fromJson(request.getReader().readLine(), Room.class);
+		//String action = request.getParameter("actionRoom");
+		//if (null != action && !action.equals("")) {
+		//	System.out.println("-ACTION: " + action);
+			Room obj = new Gson().fromJson(request.getReader().readLine().replace("\"", "\'"), Room.class);
 			response.setContentType("text/json");
 			response.setCharacterEncoding("UTF-8");
 			System.out.println("Room obj : " + obj);
-		} else {
-			LOGGER.fine("Error: Invalid operation on doPost Room-doPost method!");
-		}
+		//} else {
+		//	LOGGER.fine("Error: Invalid operation on doPost Room-doPost method!");
+		//}
 	}
 
 }

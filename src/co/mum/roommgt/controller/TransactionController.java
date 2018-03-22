@@ -74,7 +74,7 @@ public class TransactionController extends HttpServlet {
 			response.setCharacterEncoding("UTF-8");
 
 			PrintWriter out = response.getWriter();
-			out.println(obj.getUsername());
+			//out.println(obj.getUsername());
 			out.flush();
 			out.close();
 			
