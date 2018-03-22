@@ -97,3 +97,11 @@ public class Transaction {
 	}
 
 }
+
+
+/*
+
+	{'id': 1, 'description':'sample_desc', 'studentid': 1, 'request_TypeId' : 1, 'buildingFrom' : 1, 
+	 'transactionDate': '11-12-2009', 'email':'somewhere', 'phoneNumber':'123123123', 'department': ''}
+
+ * */
