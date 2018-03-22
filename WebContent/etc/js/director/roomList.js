@@ -150,7 +150,7 @@ $(document).ready(function() {
 			},
 			// options for the Edit Dialog
 			{
-				editCaption : "The Edit Dialog",
+				editCaption : "Edit Room Information",
 				recreateForm : true,
 				//checkOnUpdate : true,
 				//checkOnSubmit : true,
@@ -159,11 +159,10 @@ $(document).ready(function() {
 						console.log(' the data to postdata is: ', postdata);
 						// do something
 				        $.ajax({
-				            url: 'http://localhost:8080/RoomMgtApp/room',
+				            url: 'http://localhost:8080/RoomMgtApp/room?actionRoom=edit',
 				            data: postdata,
 				            type: 'POST', 
 				            dataType : 'json'
-				            
 				        })
 				        .done(success)
 				        .fail(fail);
@@ -186,8 +185,9 @@ $(document).ready(function() {
 			},
 			// options for the Add Dialog
 			{
-				closeAfterAdd : true,
+				addCaption : "New Room Information",
 				recreateForm : true,
+				closeAfterAdd : true,
 				errorTextFormat : function(data) {
 			        $.ajax({
 			            url: 'http://localhost:8080/RoomMgtApp/room?actionRoom=new',
@@ -211,7 +211,6 @@ $(document).ready(function() {
 			// options for the Delete Dailog
 			{
 				errorTextFormat : function(data) {
-					alert('I am about to delete the row');
 					if (confirm('Are you sure you want to delete this row?')) {
 				        $.ajax({
 				            url: 'http://localhost:8080/RoomMgtApp/room?actionRoom=delete',
