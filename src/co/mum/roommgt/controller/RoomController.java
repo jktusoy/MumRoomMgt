@@ -80,23 +80,36 @@ public class RoomController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// String action = request.getParameter("actionRoom");
+		String action = request.getParameter("actionRoom");
+		System.out.println("action: " + action);
 		PrintWriter out = response.getWriter();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		StringBuilder buffer = new StringBuilder();
-		BufferedReader reader = request.getReader();
 
-		String line;
-		while ((line = reader.readLine()) != null) {
-			buffer.append(line);
-		}
-		String data = buffer.toString();
-		System.out.println("data: " + data);
-		try {
-			Room room = gson.fromJson(data, Room.class);
-		} catch (IllegalStateException | JsonSyntaxException e) {
-			e.printStackTrace();
+		if (null != action && !action.equals("")) {
+			BufferedReader reader = request.getReader();
+			String line;
+			while ((line = reader.readLine()) != null) {
+				buffer.append(line);
+			}
+			String data = buffer.toString();
+			System.out.println("data: " + data);
+			try {
+				Room room = gson.fromJson(data, Room.class);
+			} catch (IllegalStateException | JsonSyntaxException e) {
+				e.printStackTrace();
+			}
+			switch (action) {
+			case "edit":
+				System.out.println("EDIT - Call RoomDAO.updateRoom ");
+				break;
+			case "delete":
+				System.out.println("DELETE - Call RoomDAO.deleteRoom ");
+				break;
+			case "new":
+				System.out.println("NEW - Call RoomDAO.newRoom ");
+				break;
+			}
 		}
 	}
-
 }
