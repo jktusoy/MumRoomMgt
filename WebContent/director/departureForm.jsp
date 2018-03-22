@@ -1,9 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- Student Profile form 
+<!-- Departure Form Filled by
+	Residence Director When the student leaves the building 
 Author: Binyam Heyi
 March 20,2018
 FF, IA
+
  -->
 
 <!DOCTYPE html>

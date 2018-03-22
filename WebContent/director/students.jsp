@@ -1,3 +1,8 @@
+<!-- This Populate number of students in the building
+Author: Binyam H.
+March 21,2018 -->
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>

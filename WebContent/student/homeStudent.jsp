@@ -1,3 +1,7 @@
+<!--  This Page is displayed when the user 
+ logged in as a student -->
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +84,7 @@
 		</div>
 		<div id="footer">
 			<p class="copyright">
-				Copyright © 2018 to Binyam Heyi, Joseph Tusoy, William Chaparro.
+				Copyright ï¿½ 2018 to Binyam Heyi, Joseph Tusoy, William Chaparro.
 				 All rights reserved. <br>This website is made for
 				partial fulfillment <br /> for the course CS402-Web Programming.
 			</p>
