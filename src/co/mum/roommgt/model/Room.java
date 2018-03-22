@@ -29,7 +29,11 @@ public class Room {
 	private String studentName;
 	private String studentLastName;
 	private String notes;
+	private String jqGrid_id;
 
+	public Room()
+	{}
+	
 	public int getId() {
 		return id;
 	}
@@ -182,6 +186,14 @@ public class Room {
 
 	public void setNotes(String notes) {
 		this.notes = notes;
+	}
+
+	public String getJqGrid_id() {
+		return jqGrid_id;
+	}
+
+	public void setJqGrid_id(String jqGrid_id) {
+		this.jqGrid_id = jqGrid_id;
 	}
 
 }

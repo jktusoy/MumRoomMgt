@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +19,6 @@ import com.google.gson.GsonBuilder;
 import co.mum.roommgt.dao.room.RoomDAO;
 import co.mum.roommgt.model.Account;
 import co.mum.roommgt.model.Room;
-import co.mum.roommgt.model.Transaction;
 import co.mum.roommgt.util.DatabaseConnectionFactory;
 
 /**
@@ -83,14 +81,7 @@ public class RoomController extends HttpServlet {
 		System.out.println("***doPost method 4 Rooms***");
 		String action = request.getParameter("actionRoom");
 		if (null != action && !action.equals("")) {
-			System.out.println("-ACTION: " + action);
-			System.out.println("request.getReader()" + request.getReader());
-			Room obj = new Gson().fromJson(request.getReader().readLine(), Room.class);
-			response.setContentType("text/json");
-			response.setCharacterEncoding("UTF-8");
-			System.out.println("Room obj : " + obj);
-		} else {
-			LOGGER.fine("Error: Invalid operation on doPost Room-doPost method!");
+
 		}
 	}
 

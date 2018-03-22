@@ -68,13 +68,13 @@ public class TransactionController extends HttpServlet {
 		String line = null;
 		try {
 			 
-				// {'username':'joseph', 'password':'ppp'}
+			// {'username':'joseph', 'password':'ppp'}
 			Transaction obj = new Gson().fromJson(request.getReader().readLine(), Transaction.class);
 			response.setContentType("text/json");
 			response.setCharacterEncoding("UTF-8");
 
 			PrintWriter out = response.getWriter();
-			out.println(obj.getUsername());
+			//out.println(obj.getUsername());
 			out.flush();
 			out.close();
 			
