@@ -84,6 +84,7 @@ public class RoomController extends HttpServlet {
 		String action = request.getParameter("actionRoom");
 		if (null != action && !action.equals("")) {
 			System.out.println("-ACTION: " + action);
+			System.out.println("request.getReader()" + request.getReader());
 			Room obj = new Gson().fromJson(request.getReader().readLine(), Room.class);
 			response.setContentType("text/json");
 			response.setCharacterEncoding("UTF-8");

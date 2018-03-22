@@ -156,10 +156,11 @@ $(document).ready(function() {
 				//checkOnSubmit : true,
 				beforeSubmit : function(postdata, form, oper) {
 					if (confirm('Are you sure you want to update this row?')) {
-						alert('postdata: '+JSON.stringify(postdata));
+						console.log(' the data to postdata is: ', postdata);
+						var postdata = { "name":"Fiat", "models":[ "500", "Panda" ] };
 						// do something
 				        $.ajax({
-				            url: 'http://localhost:8080/RoomMgtApp/room?actionRoom=edit',
+				            url: 'http://localhost:8080/RoomMgtApp/room',
 				            data: postdata,
 				            type: 'POST', 
 				            dataType : 'json'
