@@ -36,28 +36,22 @@
 							Per Room</a></li>
 					<li role="presentation"><a href="#messages"
 						aria-controls="messages" role="tab" data-toggle="tab">Room
-							Transfer</a></li>
-					<li role="presentation"><a href="#settings"
-						aria-controls="settings" role="tab" data-toggle="tab">Graphs</a></li>
+							Transfers</a></li>
 				</ul>
-
-
-
-
 				<!-- Tab panes -->
 				<div class="tab-content">
-
 					<div role="tabpanel" class="tab-pane" id="profile">
 						<div role="tabpanel" class="tab-pane active" id="home">
-							<div class="row">Room Status</div>
 							<div class="row">
 								<table id="jqGridReport1"></table>
-								<div id="jqGridPageReport1"></div>
 							</div>
 						</div>
 					</div>
-					<div role="tabpanel" class="tab-pane" id="messages"></div>
-					<div role="tabpanel" class="tab-pane" id="settings"></div>
+					<div role="tabpanel" class="tab-pane" id="messages">
+						<div class="row">
+							<table id="jqGridReport2"></table>
+						</div>
+					</div>
 				</div>
 
 			</div>

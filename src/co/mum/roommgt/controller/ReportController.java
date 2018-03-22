@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import co.mum.roommgt.dao.report.ReportDAO;
+import co.mum.roommgt.model.FacilityStatus;
 import co.mum.roommgt.model.RoomStatus;
 
 /**
@@ -44,25 +45,29 @@ public class ReportController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/json");
 		response.setCharacterEncoding("UTF-8");
+		
+		String type = request.getParameter("type");
 
 		PrintWriter out = response.getWriter();
 		ReportDAO rdao = new ReportDAO();
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		List<RoomStatus> rstatList = new ArrayList<RoomStatus>();
+		String jsonOutput;
+		
 
-		String statusType = request.getParameter("status");
-		String jsonOutput = "";
-		if (statusType != null && !statusType.isEmpty() && !statusType.trim().isEmpty()
-				&& !statusType.toLowerCase().trim().equals("all")) {
-
-			rstatList = rdao.reportRoomStatusFilterByStatus(statusType);
-			jsonOutput = gson.toJson(rstatList);
-
-		} else {
-			rstatList = rdao.reportRoomStatus();
-			jsonOutput = gson.toJson(rstatList);
+		if (type.equals("1"))
+		{
+			List<RoomStatus> roomstatus = new ArrayList<RoomStatus>();
+			roomstatus = rdao.reportRoomStatus();
+			jsonOutput = gson.toJson(roomstatus);
 		}
-
+		else
+		{
+			List<FacilityStatus> facilist = new ArrayList<FacilityStatus>();
+			facilist = rdao.reportFacilityStatus();
+			jsonOutput = gson.toJson(facilist);
+		}
+ 
 		out.println(jsonOutput);
 		out.flush();
 		out.close();
@@ -75,8 +80,12 @@ public class ReportController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		 
+		 
+
+
+		 doGet(request,response);
 	}
 
 }

@@ -15,11 +15,14 @@
 <script type="text/javascript"
 	src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 
+<script src='<c:url value="/etc/js/director/report.js"/>'></script>
+
+
 <script src='<c:url value="/etc/js/director/director.js"/>'></script>
 
 <script src='<c:url value="/etc/js/director/students.js"/>'></script>
 
-<script src='<c:url value="/etc/js/director/report.js"/>'></script>
+
 
 <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
@@ -34,33 +37,34 @@
 		<div id="header">
 			<img class="mum-logo"
 				src='<c:url value="/etc/images/logo-icon-transparent.svg"/>' alt="" />
-		<h3>MUM Room Management System </h3>
-			
+			<h3>MUM Room Management System</h3>
+
 		</div>
-<%-- 		<c:if test='${not empty sessionScope.userBean}'> --%>
-<!-- 			<div id="header"> -->
-<%-- 				Logged as <a href="#">${sessionScope.userBean.userName}</a> --%>
-<%-- 				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'> --%>
-<!-- 					<span>for Building Number -->
-<%-- 						${sessionScope.userBean.buildingNumber}</span> --%>
-<%-- 				</c:if> --%>
-<!-- 			</div> -->
-<%-- 		</c:if> --%>
-		<div id="subheader">Logged as DIRECTOR
-		
-		<c:if test='${not empty sessionScope.userBean}'>
-			<div id="response">
-				Logged as <a href="#">${sessionScope.userBean.userName}</a>
-				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'>
-					<span>for Building Number
-						${sessionScope.userBean.buildingNumber}</span>
-				</c:if>
-			</div>
-		</c:if>
-		
-		
-		
-		
+		<%-- 		<c:if test='${not empty sessionScope.userBean}'> --%>
+		<!-- 			<div id="header"> -->
+		<%-- 				Logged as <a href="#">${sessionScope.userBean.userName}</a> --%>
+		<%-- 				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'> --%>
+		<!-- 					<span>for Building Number -->
+		<%-- 						${sessionScope.userBean.buildingNumber}</span> --%>
+		<%-- 				</c:if> --%>
+		<!-- 			</div> -->
+		<%-- 		</c:if> --%>
+		<div id="subheader">
+			Logged as DIRECTOR
+
+			<c:if test='${not empty sessionScope.userBean}'>
+				<div id="response">
+					Logged as <a href="#">${sessionScope.userBean.userName}</a>
+					<c:if test='${sessionScope.userBean.buildingNumber ne 0}'>
+						<span>for Building Number
+							${sessionScope.userBean.buildingNumber}</span>
+					</c:if>
+				</div>
+			</c:if>
+
+
+
+
 		</div>
 		<div id="navigation" class="aside">
 
@@ -78,9 +82,9 @@
 						<li class="active"><i class="fas fa-users"></i> <a
 							id="nav_student">Student List</a></li>
 
-						<li><i class="fab fa-wpforms"></i>  <a id="nav_departure"
+						<li><i class="fab fa-wpforms"></i> <a id="nav_departure"
 							href="#">Departure Form</a></li>
-						<li><i class="fas fa-file-pdf"></i>  <a id="nav_report"
+						<li><i class="fas fa-file-pdf"></i> <a id="nav_report"
 							href="#">Generate Report</a>
 						<li class="active"><i class="fas fa fa-sign-out-alt"></i> <a
 							href="">LogOut</a></li>
@@ -91,15 +95,13 @@
 
 		</div>
 		<div id="content">
-		
+
 			<div id="generalContent" style="display: none;">
 				<%@include file="roomList.jsp"%>
 			</div>
-			
-			<div id="requestContent" style="display: none;">
-				  
-			</div>
-			
+
+			<div id="requestContent" style="display: none;"></div>
+
 			<div id="profileContent" style="display: none;">
 				<%@include file="studentProfile.jsp"%>
 			</div>
@@ -107,21 +109,21 @@
 			<div id="departureContent" style="display: none;">
 				<%@include file="departureForm.jsp"%>
 			</div>
- 
+
 			<div id="reportContent" style="display: none;">
 				<%@include file="report.jsp"%>
-			</div>  
-			
+			</div>
+
 			<div id="studentContent" style="display: none;">
 				<%@include file="students.jsp"%>
-			</div>  
-			
+			</div>
+
 		</div>
 		<div id="footer">
 			<p class="copyright">
-				Copyright © 2018 to Binyam Heyi, Joseph Tusoy, William Chaparro.
-				 All rights reserved. <br>This website is made for
-				partial fulfillment <br /> for the course CS402-Web Programming.
+				Copyright © 2018 to Binyam Heyi, Joseph Tusoy, William Chaparro. All
+				rights reserved. <br>This website is made for partial
+				fulfillment <br /> for the course CS402-Web Programming.
 			</p>
 		</div>
 	</div>
