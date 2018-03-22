@@ -71,6 +71,9 @@
 
 						<li class="active"><i class="fas fa-user fa-fw"></i> <a
 							id="nav_profile" href="#">Profile</a></li>
+							
+						<li class="active"><i class="fas fa-inbox"></i> <a
+							id="nav_profile" href="#">Requests</a></li>
 
 						<li class="active"><i class="fas fa-list-ul"></i> <a
 							id="roomsList" href="#">Rooms List</a></li>
