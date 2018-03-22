@@ -31,16 +31,6 @@
 			<div class="card">
 				<ul class="nav nav-tabs" role="tablist">
 					<li role="presentation" class="active">
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Room Status <span
-							class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#home">Available</a></li>
-							<li><a href="#home">Occupied</a></li>
-							<li><a href="#home">On Maintenance</a></li>
-						</ul></li>
-					</a>
-					</li>
 					<li role="presentation"><a href="#profile"
 						aria-controls="profile" role="tab" data-toggle="tab">Facility
 							Per Room</a></li>
@@ -51,21 +41,23 @@
 						aria-controls="settings" role="tab" data-toggle="tab">Graphs</a></li>
 				</ul>
 
+
+
+
 				<!-- Tab panes -->
 				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane active" id="home">
-						<div class="row">Room Status</div>
-						<div class="row">
-							<table id="jqGridReport1"></table>
-							<div id="jqGridPageReport1"></div>
+
+					<div role="tabpanel" class="tab-pane" id="profile">
+						<div role="tabpanel" class="tab-pane active" id="home">
+							<div class="row">Room Status</div>
+							<div class="row">
+								<table id="jqGridReport1"></table>
+								<div id="jqGridPageReport1"></div>
+							</div>
 						</div>
-
-
 					</div>
-					<div role="tabpanel" class="tab-pane" id="profile"></div>
 					<div role="tabpanel" class="tab-pane" id="messages"></div>
-					<div role="tabpanel" class="tab-pane" id="settings">
-					</div>
+					<div role="tabpanel" class="tab-pane" id="settings"></div>
 				</div>
 
 			</div>

@@ -55,7 +55,7 @@ $(document).ready(function(){
 					pgtext : null,
 					rowNum : 10,
 					pager : "#jqGridPagerStudent"
-				}).success(function(data){alert(data)});
+				});
 
 		$('#jqGridStudent').navGrid('#jqGridPagerStudent',
 		// the buttons to appear on the toolbar of the grid
