@@ -25,3 +25,4 @@ hs_err_pid*
 WebContent/WEB-INF/web.xml
 .classpath
 WebContent/WEB-INF/web.xml
+build/classes/co/mum/roommgt/dao/login/bundle/login.properties

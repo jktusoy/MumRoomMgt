@@ -1,3 +1,9 @@
+/*
+ * Last Update: 03/22/2018
+ * navigational logic for student interface
+ *  author Joseph Kelly Tusoy
+ * */
+
 $(document).ready(function() {
 	
 	console.log("initiated student.js");

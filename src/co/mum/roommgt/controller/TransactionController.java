@@ -1,5 +1,13 @@
 package co.mum.roommgt.controller;
 
+/**
+ * LoginController Description: Control the access to application Last Updated:
+ * 01/19/2018
+ * 
+ * @version 1.0 18 March 2018
+ * @author Joseph Kelly Tusoy
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;

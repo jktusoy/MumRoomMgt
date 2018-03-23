@@ -1,9 +1,7 @@
 <!-- This homepage appears
-when a user logged in as a role of director -->
-
-
-
-
+when a user logged in as a role of director
+ @author Joseph Kelly Tusoy
+ -->
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -46,16 +44,7 @@ when a user logged in as a role of director -->
 				src='<c:url value="/etc/images/logo-icon-transparent.svg"/>' alt="" />
 			<h3>MUM Room Management System</h3>
 
-		</div>
-		<%-- 		<c:if test='${not empty sessionScope.userBean}'> --%>
-		<!-- 			<div id="header"> -->
-		<%-- 				Logged as <a href="#">${sessionScope.userBean.userName}</a> --%>
-		<%-- 				<c:if test='${sessionScope.userBean.buildingNumber ne 0}'> --%>
-		<!-- 					<span>for Building Number -->
-		<%-- 						${sessionScope.userBean.buildingNumber}</span> --%>
-		<%-- 				</c:if> --%>
-		<!-- 			</div> -->
-		<%-- 		</c:if> --%>
+		</div>	
 		<div id="subheader">
 			Logged as DIRECTOR
 
@@ -68,7 +57,6 @@ when a user logged in as a role of director -->
 					</c:if>
 				</div>
 			</c:if>
-
 
 
 
